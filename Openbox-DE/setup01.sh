@@ -49,6 +49,27 @@ then
     sudo apt update && sudo apt upgrade -y ;;
     sudo apt-get -y --ignore-missing install $(< $PROXPACK)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/* ;;
+    # Download the webkit-lightdm deb file
+    wget https://github.com/senthilmask80/Proxmox-DE/blob/main/webkit-lightdm/web-greeter-3.5.3-debian.deb -o /tmp/web-greeter-3.5.3-debian.deb
+    sudo apt-get install /tmp/web-greeter-3.5.3-debian.deb
+    sudo apt-get install -f
+    echo "Successfully installed the web-greeter"
+			
+    # Download the lightdm-webkit2-greeter deb file
+    wget https://github.com/senthilmask80/Proxmox-DE/blob/main/webkit-lightdm/lightdm-webkit2-greeter.deb -o /tmp/lightdm-webkit2-greeter.deb
+    sudo apt-get install /tmp/lightdm-webkit2-greeter.deb
+    sudo apt-get install -f
+    echo "Successfully installed the lightdm-webkit2-greeter"
+			
+    # To enable and active the services
+    xdg-user-dirs-update
+    sudo systemctl is-active --quiet avahi-daemon
+    sudo systemctl is-enabled --quiet avahi-daemon
+    sudo systemctl is-active --quiet acpid
+    sudo systemctl is-enabled --quiet acpid
+    sudo systemctl is-active --quiet lightdm
+    sudo systemctl is-enabled --quiet lightdm
+    ;;
 elif [ -x "$(command -v dnf)" ];
 then
     sudo dnf update -y ;;
