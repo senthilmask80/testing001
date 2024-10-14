@@ -17,7 +17,7 @@ fi
 if [ -d "$PROXMOXDEDIR/Openbox-DE" ]; then rm -rf "$PROXMOXDEDIR/Openbox-DE"; fi
 
 echo "${YELLOW}Cloning Openbox-DE repository into: $PROXMOXDEDIR/Openbox-DE${RC}"
-git clone https://github.com/ChrisTitusTech/mybash "$PROXMOXDEDIR/Openbox-DE"
+git clone https://github.com/senthilmask80/testing001.git "$PROXMOXDEDIR/Openbox-DE"
 if [ $? -eq 0 ]; then
     echo "${GREEN}Successfully cloned Openbox-DE repository${RC}"
 else
@@ -31,7 +31,7 @@ SUDO_CMD=""
 SUGROUP=""
 GITPATH=""
 
-cd "$PROXMOXDEDIR/Openbox-DE" || exit
+cd "$PROXMOXDEDIR/Openbox-DE/Openbox-DE" || exit
 maindir=$PWD
 
 command_exists() {
