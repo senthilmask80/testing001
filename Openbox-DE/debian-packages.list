@@ -57,7 +57,7 @@ binutils
 dnsutils
 rofi
 dunst
-fileroller
+file-roller
 unzip
 p7zip
 zip
@@ -70,7 +70,7 @@ gmrun
 numlockx
 dbus-x11
 hsetroot
-qt5-style-plugin
+qt5-style-plugins
 htop
 xscreensaver-gl-extra
 xscreensaver-data-extra
