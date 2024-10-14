@@ -71,7 +71,7 @@ then
     sudo systemctl is-enabled --quiet lightdm
 elif [ -x "$(command -v dnf)" ];
 then
-    sudo dnf update -y ;;
+    sudo dnf update -y 
     sudo dnf install "${packagesNeeded[@]}"
     sudo dnf clean all && sudo dnf autoremove -y 
 elif [ -x "$(command -v zypper)" ];
