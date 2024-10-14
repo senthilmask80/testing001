@@ -87,7 +87,7 @@ installRustup() {
         return
     fi
 
-    if ! curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s; then
+    if ! curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s -- --no-modify-path; then
         echo "${RED}Something went wrong during Cargo Rust Programming install!${RC}"
         exit 1
     fi
