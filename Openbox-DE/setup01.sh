@@ -6,18 +6,18 @@ YELLOW='\033[0;33m'
 GREEN='\033[0;32m'
 
 # Check if the opt directory and Proxmox-DE folder exist, create them if they don't
-PROXMOXDEDIR="/opt/Proxmox-DE"
+PROXDIR="/opt/Proxmox-DE"
 
-if [ ! -d "$PROXMOXDEDIR" ]; then
-    echo "${YELLOW}Creating Proxmox-DE directory: $PROXMOXDEDIR${RC}"
-    mkdir -p "$PROXMOXDEDIR"
-    echo "${GREEN}Proxmox-DE directory created: $PROXMOXDEDIR${RC}"
+if [ ! -d "$PROXDIR" ]; then
+    echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
+    mkdir -p "$PROXDIR"
+    echo "${GREEN}Proxmox-DE directory created: $PROXDIR${RC}"
 fi
 
-if [ -d "$PROXMOXDEDIR/Openbox-DE" ]; then rm -rf "$PROXMOXDEDIR/Openbox-DE"; fi
+if [ -d "$PROXDIR/Openbox-DE" ]; then rm -rf "$PROXDIR/Openbox-DE"; fi
 
-echo "${YELLOW}Cloning Openbox-DE repository into: $PROXMOXDEDIR/Openbox-DE${RC}"
-git clone https://github.com/senthilmask80/testing001.git "$PROXMOXDEDIR/Openbox-DE"
+echo "${YELLOW}Cloning Openbox-DE repository into: $PROXDIR/Openbox-DE${RC}"
+git clone https://github.com/senthilmask80/testing001.git "$PROXDIR/Openbox-DE"
 if [ $? -eq 0 ]; then
     echo "${GREEN}Successfully cloned Openbox-DE repository${RC}"
 else
@@ -31,7 +31,7 @@ SUDO_CMD=""
 SUGROUP=""
 GITPATH=""
 
-cd "$PROXMOXDEDIR/Openbox-DE/Openbox-DE" || exit
+cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
 maindir=$PWD
 
 command_exists() {
