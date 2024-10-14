@@ -74,7 +74,6 @@ then
     sudo dnf update -y ;;
     sudo dnf install "${packagesNeeded[@]}"
     sudo dnf clean all && sudo dnf autoremove -y 
-    ;;
 elif [ -x "$(command -v zypper)" ];
 then
     sudo zypper install "${packagesNeeded[@]}"
