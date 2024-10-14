@@ -7,6 +7,7 @@ GREEN='\033[0;32m'
 
 # Check if the opt directory and Proxmox-DE folder exist, create them if they don't
 PROXDIR="/opt/Proxmox-DE"
+PROXPACK="/opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages"
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
@@ -45,7 +46,7 @@ then
 elif [ -x "$(command -v apt-get)" ];
 then
     sudo apt-get -y update && sudo apt-get -y upgrade 
-    sudo apt-get -y --ignore-missing install $(< $maindir/Packages/debian-packages.list)
+    sudo apt-get -y --ignore-missing install $(< $PROXPACK/debian-packages.list)
 elif [ -x "$(command -v dnf)" ];
 then
     sudo dnf install "${packagesNeeded[@]}"
