@@ -32,8 +32,8 @@ SUDO_CMD=""
 SUGROUP=""
 GITPATH=""
 
-cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
-maindir=$PWD
+#cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
+#maindir=$PWD
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
