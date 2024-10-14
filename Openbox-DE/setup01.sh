@@ -37,3 +37,21 @@ maindir=$PWD
 command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
+
+packagesNeeded=(curl jq)
+if [ -x "$(command -v apk)" ];
+then
+    sudo apk add --no-cache "${packagesNeeded[@]}"
+elif [ -x "$(command -v apt-get)" ];
+then
+    sudo apt-get -y update && sudo apt-get -y upgrade 
+    sudo apt-get -y --ignore-missing install $(< debian-packages.list)
+elif [ -x "$(command -v dnf)" ];
+then
+    sudo dnf install "${packagesNeeded[@]}"
+elif [ -x "$(command -v zypper)" ];
+then
+    sudo zypper install "${packagesNeeded[@]}"
+else
+    echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: "${packagesNeeded[@]}"">&2;
+fi
