@@ -47,7 +47,7 @@ then
 elif [ -x "$(command -v apt-get)" ];
 then
     sudo apt-get -y update && sudo apt-get -y upgrade
-    sudo apt-get -y --ignore-missing install $(< "${SCRIPTPATH}"/Packages/debian-packages.list)
+    sudo apt-get -y --ignore-missing install $(< source "${SCRIPTPATH}"/Packages/debian-packages.list)
 elif [ -x "$(command -v dnf)" ];
 then
     sudo dnf install "${packagesNeeded[@]}"
