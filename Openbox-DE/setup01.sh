@@ -60,3 +60,144 @@ then
 else
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: "${packagesNeeded[@]}"">&2;
 fi
+
+installRustup() {
+    if command_exists cargo; then
+        echo "Cargo Rust Programming Language already installed"
+        return
+    fi
+
+    if ! curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh -s; then
+        echo "${RED}Something went wrong during Cargo Rust Programming install!${RC}"
+        exit 1
+    fi
+}
+
+installNVM() {
+    if command_exists nvm; then
+        echo "NVM and NodeJS already installed"
+        return
+    fi
+
+    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh; then
+        echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
+        exit 1
+    fi
+}
+
+installStarshipAndFzf() {
+    if command_exists starship; then
+        echo "Starship already installed"
+        return
+    fi
+
+    if ! curl -sS https://starship.rs/install.sh | sh; then
+        echo "${RED}Something went wrong during starship install!${RC}"
+        exit 1
+    fi
+    if command_exists fzf; then
+        echo "Fzf already installed"
+    else
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    fi
+}
+
+installZoxide() {
+    if command_exists zoxide; then
+        echo "Zoxide already installed"
+        return
+    fi
+
+    if ! curl -sS https://raw.githubusercontent.com/ajeetdsouza/zoxide/main/install.sh | sh; then
+        echo "${RED}Something went wrong during zoxide install!${RC}"
+        exit 1
+    fi
+}
+
+create_fastfetch_config() {
+    ## Get the correct user home directory.
+    USER_HOME=$(getent passwd "${SUDO_USER:-$USER}" | cut -d: -f6)
+    
+    if [ ! -d "$USER_HOME/.config/fastfetch" ]; then
+        mkdir -p "$USER_HOME/.config/fastfetch"
+    fi
+    # Check if the fastfetch config file exists
+    if [ -e "$USER_HOME/.config/fastfetch/config.jsonc" ]; then
+        rm -f "$USER_HOME/.config/fastfetch/config.jsonc"
+    fi
+    ln -svf "$GITPATH/config.jsonc" "$USER_HOME/.config/fastfetch/config.jsonc" || {
+        echo "${RED}Failed to create symbolic link for fastfetch config${RC}"
+        exit 1
+    }
+}
+
+linkConfig() {
+    ## Get the correct user home directory.
+    USER_HOME=$(getent passwd "${SUDO_USER:-$USER}" | cut -d: -f6)
+    ## Check if a bashrc file is already there.
+    OLD_BASHRC="$USER_HOME/.bashrc"
+    if [ -e "$OLD_BASHRC" ]; then
+        echo "${YELLOW}Moving old bash config file to $USER_HOME/.bashrc.bak${RC}"
+        if ! mv "$OLD_BASHRC" "$USER_HOME/.bashrc.bak"; then
+            echo "${RED}Can't move the old bash config file!${RC}"
+            exit 1
+        fi
+    fi
+
+    echo "${YELLOW}Linking new bash config file...${RC}"
+    ln -svf "$GITPATH/.bashrc" "$USER_HOME/.bashrc" || {
+        echo "${RED}Failed to create symbolic link for .bashrc${RC}"
+        exit 1
+    }
+    ln -svf "$GITPATH/starship.toml" "$USER_HOME/.config/starship.toml" || {
+        echo "${RED}Failed to create symbolic link for starship.toml${RC}"
+        exit 1
+    }
+}
+
+install_Obmenu() {
+    if command_exists obmenu-generator; then
+        echo "obmenu-generator already installed"
+        return
+    fi
+
+    if ! curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh; then
+		cpan -i Gtk3
+		#curl -L http://cpanmin.us | perl - --sudo Gtk3
+		cpan -i Data::Dump
+		#curl -L http://cpanmin.us | perl - --sudo Data::Dump
+		cpan -i Linux::DesktopFiles
+		#curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
+		cpan -i File::DesktopEntry
+		#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
+        echo "${RED}Something went wrong during Cargo Rust Programming install!${RC}"
+        exit 1
+    fi
+}
+
+install_Saluto() {
+    if command_exists nvm; then
+		nvm install v8.9.1
+		nvm alias default 8.9.1
+		npm install -g vue-cli
+		npm install -g vue-cli --force
+		if ! curl -o- https://raw.githubusercontent.com/Demonstrandum/Saluto/refs/heads/master/install.sh | sh; then
+		echo "Saluto installed"
+        return
+        fi
+    fi
+}
+
+checkEnv
+installDepend
+installRustup
+installStarshipAndFzf
+installZoxide
+create_fastfetch_config
+linkConfig
+install_Common_Packages
+install_additional_dependencies
+install_Obmenu
+install_Saluto
+create_users
