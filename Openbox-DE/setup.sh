@@ -422,17 +422,6 @@ ver() {
 install_Common_Packages() {
 	local dtype
 	dtype=$(distribution)
-	pkgs=(zoxide trash-cli fzf fastfetch build-essential aptitude apt-transport-https  \
-			software-properties-common gnupg ca-certificates openbox tint2 terminator firefox-esr xfce4-appfinder xorg \
-			xinit dialog menu obconf xfce4-power-manager acpi acpid autoconf libnotify-bin xinput xdotool xcompmgr \
-			dosfstools mtools xdg-user-dirs xserver-xorg xserver-common xserver-xephyr xbacklight xbindkeysxvkbd \
-			lxappearance lxappearance-obconf feh redshift lightdm lightdm-settings lightdm-gtk-greeter policykit-1-gnome \
-			lightdm-gtk-greeter-settings slick-greeter gnome-common liblightdm-gobject-dev libgtk-3-dev libwebkit2gtk-4.0-dev \
-			network-manager network-manager-gnome avahi-daemon gvfs-backends binutils dnsutils rofi dunst fileroller \
-			unzip p7zip zip exa scrot xclip nitrogen ristretto gmrun numlockx dbus-x11 hsetroot qt5-style-plugin htop \
-			xscreensaver-gl-extra xscreensaver-data-extra conky cairo-dock pulseaudio pavucontrol volumeicon-alsa pamixer \
-			pulsemixer fonts-recommended fonts-font-awesome fonts-terminus fonts-noto libdbus-glib-1-dev \
-			perl perl-doc libmodule-build-perl libgtk3-perl libssl-dev)
 
 	case $dtype in
 		"redhat")
@@ -444,6 +433,7 @@ install_Common_Packages() {
 		"debian")
 			#sudo apt-get -y --ignore-missing install "${pkgs[@]}"
 			# https://unix.stackexchange.com/questions/717483/creating-a-bash-script-to-install-packages
+   			sudo apt-get update -y && sudo apt-get upgrade -y && sudo apt-get dist-upgrade
 			sudo apt-get -y --ignore-missing install $(< debian-packages.list)
 			
 			# Fetch the latest fastfetch release URL for linux-amd64 deb file
