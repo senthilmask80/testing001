@@ -8,6 +8,7 @@ fastfetch
 wget
 unzip
 fontconfig
+jq
 zoxide
 trash-cli
 fzf
