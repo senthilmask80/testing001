@@ -46,11 +46,14 @@ then
     sudo apk add --no-cache "${packagesNeeded[@]}"
 elif [ -x "$(command -v apt-get)" ];
 then
-    sudo apt-get -y update && sudo apt-get -y upgrade
+    sudo apt update && sudo apt upgrade -y ;;
     sudo apt-get -y --ignore-missing install $(< $PROXPACK)
+    sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/* ;;
 elif [ -x "$(command -v dnf)" ];
 then
+    sudo dnf update -y ;;
     sudo dnf install "${packagesNeeded[@]}"
+    sudo dnf clean all && sudo dnf autoremove -y ;;
 elif [ -x "$(command -v zypper)" ];
 then
     sudo zypper install "${packagesNeeded[@]}"
