@@ -45,7 +45,8 @@ then
     sudo apk add --no-cache "${packagesNeeded[@]}"
 elif [ -x "$(command -v apt-get)" ];
 then
-    sudo apt-get -y update && sudo apt-get -y upgrade 
+    sudo apt-get -y update && sudo apt-get -y upgrade
+    echo "$PROXPACK"
     sudo apt-get -y --ignore-missing install $(< $PROXPACK/debian-packages.list)
 elif [ -x "$(command -v dnf)" ];
 then
