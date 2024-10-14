@@ -46,7 +46,7 @@ then
     sudo apk add --no-cache "${packagesNeeded[@]}"
 elif [ -x "$(command -v apt-get)" ];
 then
-    sudo apt update && sudo apt upgrade -y ;;
+    sudo apt update && sudo apt upgrade -y
     sudo apt-get -y --ignore-missing install $(< $PROXPACK)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/* 
     # Download the webkit-lightdm deb file
@@ -69,7 +69,6 @@ then
     sudo systemctl is-enabled --quiet acpid
     sudo systemctl is-active --quiet lightdm
     sudo systemctl is-enabled --quiet lightdm
-    ;;
 elif [ -x "$(command -v dnf)" ];
 then
     sudo dnf update -y ;;
