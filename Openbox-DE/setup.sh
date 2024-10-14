@@ -1,9 +1,9 @@
 #!/bin/bash
 
 RC='\033[0m'
-RED='\033[31m'
-YELLOW='\033[33m'
-GREEN='\033[32m'
+RED='\033[0;31m'
+YELLOW='\033[0;33m'
+GREEN='\033[0;32m'
 
 # Check if the opt directory and Proxmox-DE folder exist, create them if they don't
 PROXMOXDEDIR="/opt/Proxmox-DE"
