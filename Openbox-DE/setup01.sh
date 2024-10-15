@@ -50,7 +50,7 @@ then
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/* 
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages//fastfetch_latest_amd64.deb
+    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/fastfetch_latest_amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
     
