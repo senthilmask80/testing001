@@ -12,7 +12,6 @@ jq
 zoxide
 trash-cli
 fzf
-fastfetch
 build-essential
 aptitude
 apt-transport-https
