@@ -85,6 +85,7 @@ else
 fi
 
 installRustup() {
+    source ~/.bashrc
     if command_exists cargo; then
         echo "Cargo Rust Programming Language already installed"
         return
@@ -97,6 +98,7 @@ installRustup() {
 }
 
 installNVM() {
+    source ~/.bashrc
     if command_exists nvm; then
         echo "NVM and NodeJS already installed"
         return
@@ -180,6 +182,7 @@ linkConfig() {
 }
 
 install_Obmenu() {
+    source ~/.bashrc
     if command_exists obmenu-generator; then
         echo "obmenu-generator already installed"
         return
@@ -196,6 +199,7 @@ install_Obmenu() {
 }
 
 install_Saluto() {
+    source ~/.bashrc
     if command_exists nvm; then
 		nvm install v8.9.1
 		nvm alias default 8.9.1
