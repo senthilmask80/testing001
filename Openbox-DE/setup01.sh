@@ -212,8 +212,6 @@ install_Saluto() {
     fi
 }
 
-checkEnv
-installDepend
 installRustup
 installNVM
 installStarshipAndFzf
