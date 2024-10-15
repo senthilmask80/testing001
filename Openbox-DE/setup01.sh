@@ -17,14 +17,13 @@ if [ ! -d "$PROXDIR" ]; then
 fi
 
 if [ -d "$PROXDIR/Openbox-DE" ]; then rm -rf "$PROXDIR/Openbox-DE"; fi
-
-echo "${YELLOW}Cloning Openbox-DE repository into: $PROXDIR/Openbox-DE${RC}"
-git clone https://github.com/senthilmask80/testing001.git "$PROXDIR/Openbox-DE"
+	echo "${YELLOW}Cloning Openbox-DE repository into: $PROXDIR/Openbox-DE${RC}"
+	git clone https://github.com/senthilmask80/testing001.git "$PROXDIR/Openbox-DE"
 if [ $? -eq 0 ]; then
-    echo "${GREEN}Successfully cloned Openbox-DE repository${RC}"
+	echo "${GREEN}Successfully cloned Openbox-DE repository${RC}"
 else
-    echo "${RED}Failed to clone Openbox-DE repository${RC}"
-    exit 1
+    	echo "${RED}Failed to clone Openbox-DE repository${RC}"
+exit 1
 fi
 
 # add variables to top level so can easily be accessed by all functions
@@ -33,8 +32,8 @@ SUDO_CMD=""
 SUGROUP=""
 GITPATH=""
 
-#cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
-#maindir=$PWD
+cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
+maindir=$PWD
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
@@ -50,14 +49,12 @@ then
     sudo apt-get -y --ignore-missing install $(< $PROXPACK)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/* 
     # Download the webkit-lightdm deb file
-    wget https://github.com/senthilmask80/Proxmox-DE/blob/main/webkit-lightdm/web-greeter-3.5.3-debian.deb -o /tmp/web-greeter-3.5.3-debian.deb
-    sudo apt-get install /tmp/web-greeter-3.5.3-debian.deb
+    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/web-greeter-3.5.3-debian.deb
     sudo apt-get install -f
     echo "Successfully installed the web-greeter"
 			
     # Download the lightdm-webkit2-greeter deb file
-    wget https://github.com/senthilmask80/Proxmox-DE/blob/main/webkit-lightdm/lightdm-webkit2-greeter.deb -o /tmp/lightdm-webkit2-greeter.deb
-    sudo apt-get install /tmp/lightdm-webkit2-greeter.deb
+    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages//lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 			
@@ -181,19 +178,15 @@ install_Obmenu() {
         echo "obmenu-generator already installed"
         return
     fi
-
-    if ! curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh; then
-		cpan -i Gtk3
-		#curl -L http://cpanmin.us | perl - --sudo Gtk3
-		cpan -i Data::Dump
-		#curl -L http://cpanmin.us | perl - --sudo Data::Dump
-		cpan -i Linux::DesktopFiles
-		#curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
-		cpan -i File::DesktopEntry
-		#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
-        echo "${RED}Something went wrong during Cargo Rust Programming install!${RC}"
+	cpan -i Gtk3
+	#curl -L http://cpanmin.us | perl - --sudo Gtk3
+	cpan -i Data::Dump
+	#curl -L http://cpanmin.us | perl - --sudo Data::Dump
+	cpan -i Linux::DesktopFiles
+	#curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
+	cpan -i File::DesktopEntry
+	#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
         exit 1
-    fi
 }
 
 install_Saluto() {
@@ -212,12 +205,12 @@ install_Saluto() {
 checkEnv
 installDepend
 installRustup
+installNVM
 installStarshipAndFzf
 installZoxide
 create_fastfetch_config
 linkConfig
-install_Common_Packages
-install_additional_dependencies
+install_Obmenu
 install_Obmenu
 install_Saluto
 create_users
