@@ -102,7 +102,7 @@ installNVM() {
         return
     fi
 
-    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh; then
+    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; then
         echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
         exit 1
     fi
