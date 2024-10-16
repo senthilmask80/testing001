@@ -14,7 +14,7 @@ PACKAGER="/opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/"
 SUDO_CMD=""
 SUGROUP=""
 GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
-OBMENU="$PROXDIR/Openbox-DE/Openbox-DE"
+
 mkdir -p ~/.local/bin/
 mkdir -p ~/.config/obmenu-generator
 mkdir -p $HOME/.nvm
@@ -235,11 +235,20 @@ installNVM() {
 }
 
 final_steps() {
-    cp -rf $OBMENU/obmenu/* ~/.config/obmenu-generator/.
+    cp -rf $PACKAGER/obmenu-generator/ ~/.config/
+    cp -rf $PACKAGER/openbox/ ~/.config/
+    cp -rf $PACKAGER/backgrounds/ ~/.config/
+    cp -rf $PACKAGER/dunst/ ~/.config/
+    cp -rf $PACKAGER/kitty/ ~/.config/
+    cp -rf $PACKAGER/picom/ ~/.config/
+    cp -rf $PACKAGER/tint2/ ~/.config/
+    mv /etc/lightdm/lightdm.conf /etc/lightdm/lightdm.conf.bak1
+    mv /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.bak1
+    mv /etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/lightdm-webkit2-greeter.conf.bak1
+    cp -rf $PACKAGER/lightdm/ /etc/
     obmenu-generator -p -i
-    
-
 }
+
 linkConfig
 installRustup
 installStarshipAndFzf
@@ -247,5 +256,5 @@ installZoxide
 create_fastfetch_config
 install_Obmenu
 installNVM
-install_Saluto
+final_steps
 # create_users
