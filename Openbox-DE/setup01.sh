@@ -39,6 +39,137 @@ command_exists() {
     command -v "$1" >/dev/null 2>&1
 }
 
+checkEnv() {
+    ## Check for requirements.
+    REQUIREMENTS='curl wget git groups sudo'
+    for req in $REQUIREMENTS; do
+        if ! command_exists "$req"; then
+            echo "${RED}To run me, you need: $REQUIREMENTS${RC}"
+            exit 1
+        fi
+    done
+
+    ## Check Package Handler
+    PACKAGEMANAGER='nala apt dnf yum pacman zypper emerge xbps-install nix-env'
+    for pgm in $PACKAGEMANAGER; do
+        if command_exists "$pgm"; then
+            PACKAGER="$pgm"
+            echo "Using $pgm"
+            break
+        fi
+    done
+
+    if [ -z "$PACKAGER" ]; then
+        echo "${RED}Can't find a supported package manager${RC}"
+        exit 1
+    fi
+
+    if command_exists sudo; then
+        SUDO_CMD="sudo"
+    elif command_exists doas && [ -f "/etc/doas.conf" ]; then
+        SUDO_CMD="doas"
+    else
+        SUDO_CMD="su -c"
+    fi
+
+    echo "Using $SUDO_CMD as privilege escalation software"
+
+    ## Check if the current directory is writable.
+    GITPATH=$(dirname "$(realpath "$0")")
+    if [ ! -w "$GITPATH" ]; then
+        echo "${RED}Can't write to $GITPATH${RC}"
+        exit 1
+    fi
+
+    ## Check SuperUser Group
+
+    SUPERUSERGROUP='wheel sudo root'
+    for sug in $SUPERUSERGROUP; do
+        if groups | grep -q "$sug"; then
+            SUGROUP="$sug"
+            echo "Super user group $SUGROUP"
+            break
+        fi
+    done
+
+    ## Check if member of the sudo group.
+    if ! groups | grep -q "$SUGROUP"; then
+        echo "${RED}You need to be a member of the sudo group to run me!${RC}"
+        exit 1
+    fi
+}
+
+installDepend() {
+    ## Check for dependencies.
+    DEPENDENCIES='bash bash-completion tar bat tree multitail fastfetch wget unzip fontconfig'
+    if ! command_exists nvim; then
+        DEPENDENCIES="${DEPENDENCIES} neovim"
+    fi
+
+    echo "${YELLOW}Installing dependencies...${RC}"
+    if [ "$PACKAGER" = "pacman" ]; then
+        if ! command_exists yay && ! command_exists paru; then
+            echo "Installing yay as AUR helper..."
+            ${SUDO_CMD} ${PACKAGER} --noconfirm -S base-devel
+            cd /opt && ${SUDO_CMD} git clone https://aur.archlinux.org/yay-git.git && ${SUDO_CMD} chown -R "${USER}:${USER}" ./yay-git
+            cd yay-git && makepkg --noconfirm -si
+        else
+            echo "AUR helper already installed"
+        fi
+        if command_exists yay; then
+            AUR_HELPER="yay"
+        elif command_exists paru; then
+            AUR_HELPER="paru"
+        else
+            echo "No AUR helper found. Please install yay or paru."
+            exit 1
+        fi
+        ${AUR_HELPER} --noconfirm -S ${DEPENDENCIES}
+    elif [ "$PACKAGER" = "nala" ]; then
+        ${SUDO_CMD} ${PACKAGER} install -y ${DEPENDENCIES}
+    elif [ "$PACKAGER" = "emerge" ]; then
+        ${SUDO_CMD} ${PACKAGER} -v app-shells/bash app-shells/bash-completion app-arch/tar app-editors/neovim sys-apps/bat app-text/tree app-text/multitail app-misc/fastfetch
+    elif [ "$PACKAGER" = "xbps-install" ]; then
+        ${SUDO_CMD} ${PACKAGER} -v ${DEPENDENCIES}
+    elif [ "$PACKAGER" = "nix-env" ]; then
+        ${SUDO_CMD} ${PACKAGER} -iA nixos.bash nixos.bash-completion nixos.gnutar nixos.neovim nixos.bat nixos.tree nixos.multitail nixos.fastfetch  nixos.pkgs.starship
+    elif [ "$PACKAGER" = "dnf" ]; then
+        ${SUDO_CMD} ${PACKAGER} install -y ${DEPENDENCIES}
+    else
+        ${SUDO_CMD} ${PACKAGER} install -yq ${DEPENDENCIES}
+    fi
+
+    # Check to see if the MesloLGS Nerd Font is installed (Change this to whatever font you would like)
+    FONT_NAME=("Meslo" "Noto" "Mononoki" "CascadiaCode" "FiraCode" "Hack" "Inconsolata" "JetBrainsMono" "RobotoMono" "SourceCodePro" "UbunutuMono")
+    for FONT in "${FONT_NAME[@]}"
+    do
+    if fc-list :family | grep -iq "$FONT"; then
+        echo "Font '$FONT' is installed."
+    else
+        echo "Installing font '$FONT'"
+        # Change this URL to correspond with the correct font
+        FONT_URL="https://github.com/ryanoasis/nerd-fonts/releases/latest/download/v3.2.1/$FONT.zip"
+        FONT_DIR="$HOME/.local/share/fonts"
+        # check if the file is accessible
+        if wget -q --spider "$FONT_URL"; then
+            TEMP_DIR=$(mktemp -d)
+            wget -q --show-progress $FONT_URL -O "$TEMP_DIR"/"$FONT".zip
+            unzip "$TEMP_DIR"/"$FONT".zip -d "$TEMP_DIR"
+            mkdir -p "$FONT_DIR"/"$FONT"
+            mv "${TEMP_DIR}"/*.ttf "$FONT_DIR"/"$FONT"
+            # Update the font cache
+            fc-cache -fv
+            # delete the files created from this
+            rm -rf "${TEMP_DIR}"
+            echo "'$FONT' installed successfully."
+            continue
+        else
+            echo "Font '$FONT_NAME' not installed. Font URL is not accessible."
+        fi
+    fi
+    done
+}
+
 packagesNeeded=(curl jq)
 if [ -x "$(command -v apk)" ];
 then
@@ -212,6 +343,8 @@ install_Saluto() {
     fi
 }
 
+checkEnv
+installDepend
 installRustup
 installNVM
 installStarshipAndFzf
