@@ -17,6 +17,7 @@ GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
 
 mkdir -p ~/.local/bin/
 mkdir -p ~/.config/obmenu-generator
+mkdir -p ~/.config/fbmenugen
 mkdir -p $HOME/.nvm
 
 if [ ! -d "$PROXDIR" ]; then
@@ -236,6 +237,9 @@ installNVM() {
 
 final_steps() {
     cp -rf $PACKAGER/obmenu-generator/ ~/.config/
+    cp -rf $PACKAGER/obmenu-generator/config.pl ~/.config/fbmenugen/config.pl
+    cp -rf $PACKAGER/obmenu-generator/schema.pl ~/.config/fbmenugen/schema.pl
+    cp -rf $PACKAGER/obmenu-generator/fbmenugen ~/local/bin/fbmenugen
     cp -rf $PACKAGER/openbox/ ~/.config/
     cp -rf $PACKAGER/backgrounds/ ~/.config/
     cp -rf $PACKAGER/dunst/ ~/.config/
@@ -248,7 +252,10 @@ final_steps() {
     cp -rf $PACKAGER/lightdm/ /etc/
     chmod +x ~/.local/bin/obmenu-generator
     chmod 755 ~/.local/bin/obmenu-generator
+    chmod +x ~/.local/bin/fbmenugen
+    chmod 755 ~/.local/bin/fbmenugen
     obmenu-generator -p -i
+    fbmenugen -g -i
 }
 
 create_users() {
@@ -296,19 +303,28 @@ if ! getent group "$username" &>/dev/null; then
 	echo "User creation process completed." 
 	chown -R :$GROUP /opt/Proxmox-DE
  	mkdir -p /home/$username/.local/bin
+	mkdir -p /home/$username/.config/obmenu-generator
+	mkdir -p /home/$username/.config/fbmenugen
+	mkdir -p $HOME/.nvm
  	cp -rf $PACKAGER/obmenu-generator/ /home/$username/.config/
+  	cp -rf $PACKAGER/obmenu-generator/schema.pl /home/$username/.config/fbmenugen/schema.pl
+   	cp -rf $PACKAGER/obmenu-generator/config.pl /home/$username/.config/fbmenugen/config.pl
     	cp -rf $PACKAGER/openbox/ /home/$username/.config/
     	cp -rf $PACKAGER/backgrounds/ /home/$username/.config/
     	cp -rf $PACKAGER/dunst/ /home/$username/.config/
     	cp -rf $PACKAGER/kitty/ /home/$username/.config/
     	cp -rf $PACKAGER/picom/ /home/$username/.config/
     	cp -rf $PACKAGER/tint2/ /home/$username/.config/
+     	cp -rf $PACKAGER/obmenu-generator/obmenu-generator /home/$username/obmenu-generator
+      	cp -rf $PACKAGER/obmenu-generator/fbmenugen /home/$username/fbmenugen
 	chmod +x /home/$username/.local/bin/obmenu-generator
     	chmod 755 /home/$username/.local/bin/obmenu-generator
+     	chmod +x /home/$username/.local/bin/fbmenugen
+    	chmod 755 /home/$username/.local/bin/fbmenugen
     	obmenu-generator -p -i
+     	fbmenugen -g -i
 fi
 }
-
 
 linkConfig
 installRustup
