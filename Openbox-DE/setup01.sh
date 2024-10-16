@@ -246,6 +246,8 @@ final_steps() {
     mv /etc/lightdm/lightdm-gtk-greeter.conf /etc/lightdm/lightdm-gtk-greeter.conf.bak1
     mv /etc/lightdm/lightdm-webkit2-greeter.conf /etc/lightdm/lightdm-webkit2-greeter.conf.bak1
     cp -rf $PACKAGER/lightdm/ /etc/
+    chmod +x ~/.local/bin/obmenu-generator
+    chmod 755 ~/.local/bin/obmenu-generator
     obmenu-generator -p -i
 }
 
