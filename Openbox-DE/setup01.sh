@@ -211,14 +211,12 @@ install_Saluto() {
     fi
 }
 
-checkEnv
-installDepend
+linkConfig
 installRustup
 installNVM
 installStarshipAndFzf
 installZoxide
 create_fastfetch_config
-linkConfig
 install_Obmenu
 install_Obmenu
 install_Saluto
