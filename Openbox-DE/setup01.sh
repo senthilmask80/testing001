@@ -100,19 +100,6 @@ installRustup() {
     fi
 }
 
-installNVM() {
-    source ~/.bashrc
-    if command_exists nvm; then
-        echo "NVM and NodeJS already installed"
-        return
-    fi
-
-    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; then
-        echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
-        exit 1
-    fi
-}
-
 installStarshipAndFzf() {
     if command_exists starship; then
         echo "Starship already installed"
@@ -212,6 +199,19 @@ install_Obmenu() {
     exit 1
 }
 
+installNVM() {
+    source ~/.bashrc
+    if command_exists nvm; then
+        echo "NVM and NodeJS already installed"
+        return
+    fi
+
+    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; then
+        echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
+        
+    fi
+}
+
 install_Saluto() {
     source ~/.bashrc
     if command_exists nvm; then
@@ -228,11 +228,10 @@ install_Saluto() {
 
 linkConfig
 installRustup
-installNVM
 installStarshipAndFzf
 installZoxide
 create_fastfetch_config
 install_Obmenu
-install_Obmenu
+installNVM
 install_Saluto
 create_users
