@@ -196,7 +196,7 @@ install_Obmenu() {
     cp -rf $OBMENU/obmenu/* ~/.local/bin/.
     obmenu-generator -p -i
     echo "Successfully installed the obmenu-generator"
-    exit 1
+    
 }
 
 installNVM() {
