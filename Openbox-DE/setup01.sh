@@ -295,16 +295,16 @@ if ! getent group "$username" &>/dev/null; then
 	echo "$username:$password" | sudo chpasswd
 	echo "User creation process completed." 
 	chown -R :$GROUP /opt/Proxmox-DE
- 	su - $username
-	cp -rf $PACKAGER/obmenu-generator/ ~/.config/
-    	cp -rf $PACKAGER/openbox/ ~/.config/
-    	cp -rf $PACKAGER/backgrounds/ ~/.config/
-    	cp -rf $PACKAGER/dunst/ ~/.config/
-    	cp -rf $PACKAGER/kitty/ ~/.config/
-    	cp -rf $PACKAGER/picom/ ~/.config/
-    	cp -rf $PACKAGER/tint2/ ~/.config/
-	chmod +x ~/.local/bin/obmenu-generator
-    	chmod 755 ~/.local/bin/obmenu-generator
+ 	mkdir -p /home/$username/.local/bin
+ 	cp -rf $PACKAGER/obmenu-generator/ /home/$username/.config/
+    	cp -rf $PACKAGER/openbox/ /home/$username/.config/
+    	cp -rf $PACKAGER/backgrounds/ /home/$username/.config/
+    	cp -rf $PACKAGER/dunst/ /home/$username/.config/
+    	cp -rf $PACKAGER/kitty/ /home/$username/.config/
+    	cp -rf $PACKAGER/picom/ /home/$username/.config/
+    	cp -rf $PACKAGER/tint2/ /home/$username/.config/
+	chmod +x /home/$username/.local/bin/obmenu-generator
+    	chmod 755 /home/$username/.local/bin/obmenu-generator
     	obmenu-generator -p -i
 fi
 }
