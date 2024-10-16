@@ -17,6 +17,7 @@ GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
 OBMENU="$PROXDIR/Openbox-DE/Openbox-DE"
 mkdir -p ~/.local/bin/
 mkdir -p ~/.config/obmenu-generator
+mkdir -p $HOME/.nvm
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
