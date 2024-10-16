@@ -216,10 +216,11 @@ installNVM() {
 	# Installing the vue-cli
 	npm install -g vue-cli
 	npm install -g vue-cli --force
- 	if ! curl -o- https://raw.githubusercontent.com/Demonstrandum/Saluto/refs/heads/master/install.sh | bash; then
-		echo "Successfully installed the Saluto installed"
-        return
-        fi
+	# Download the obmenu deb file
+	git clone https://github.com/Demonstrandum/Saluto.git /tmp/Saluto
+	cd /tmp/Saluto
+  	sh ./install.sh
+	echo "Successfully installed the Saluto installed"
     fi
 }
 
@@ -230,10 +231,11 @@ install_Saluto() {
 		nvm alias default 8.9.1
 		npm install -g vue-cli
 		npm install -g vue-cli --force
-		if ! curl -o- https://raw.githubusercontent.com/Demonstrandum/Saluto/refs/heads/master/install.sh | sh; then
-		echo "Saluto installed"
-        return
-        fi
+		# Download the obmenu deb file
+  		git clone https://github.com/Demonstrandum/Saluto.git /tmp/Saluto
+		cd /tmp/Saluto
+  		sh ./install.sh
+		echo "Successfully installed the Saluto installed"
     fi
 }
 
@@ -244,5 +246,5 @@ installZoxide
 create_fastfetch_config
 install_Obmenu
 installNVM
-install_Saluto
-create_users
+# install_Saluto
+# create_users
