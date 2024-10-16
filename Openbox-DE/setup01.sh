@@ -172,7 +172,7 @@ linkConfig() {
 }
 
 install_Obmenu() {
-    source ~/.bashrc
+    #source ~/.bashrc
     if command_exists obmenu-generator; then
         echo "obmenu-generator already installed"
         return
@@ -200,7 +200,7 @@ install_Obmenu() {
 }
 
 installNVM() {
-    source ~/.bashrc
+    #source ~/.bashrc
     if command_exists nvm; then
         echo "NVM and NodeJS already installed"
         return
@@ -213,7 +213,7 @@ installNVM() {
 }
 
 install_Saluto() {
-    source ~/.bashrc
+    #source ~/.bashrc
     if command_exists nvm; then
 		nvm install v8.9.1
 		nvm alias default 8.9.1
