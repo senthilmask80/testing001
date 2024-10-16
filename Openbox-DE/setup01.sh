@@ -201,13 +201,14 @@ install_Obmenu() {
 
     # Download the obmenu deb file
     git clone https://github.com/trizen/Linux-DesktopFiles.git /tmp/Linux-DesktopFiles
-    cd Linux-DesktopFiles
+    cd /tmp/Linux-DesktopFiles
     perl Build.PL
 	./Build
 	./Build test
     sudo ./Build install
     cp -rf $OBMENU/obmenu/ ~/.local/bin/
-    echo "Successfully installed the lightdm-webkit2-greeter"
+    obmenu-generator -p -i
+    echo "Successfully installed the obmenu-generator"
     exit 1
 }
 
