@@ -193,8 +193,7 @@ install_Obmenu() {
 	./Build
 	./Build test
     sudo ./Build install
-    cp -rf $OBMENU/obmenu/* ~/.local/bin/.
-    obmenu-generator -p -i
+
     echo "Successfully installed the obmenu-generator"
     
 }
@@ -219,25 +218,28 @@ installNVM() {
 
     if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh; then
         echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
+	# I chose the latest LTS version, by the time I'm writing this * Gist *, it's v8.9.1. You can install it by typing:
+	nvm install v8.9.1
+	# To set a version of the node as default, run the following command:
+	nvm alias default 8.9.1
+	# Installing the vue-cli
+	npm install -g vue-cli
+	npm install -g vue-cli --force
+	# Download the obmenu deb file
+	git clone https://github.com/Demonstrandum/Saluto.git /tmp/Saluto
+	cd /tmp/Saluto
+  	sh ./install.sh
+	echo "Successfully installed the Saluto installed"
+        return
     fi 	
-
 }
 
-install_Saluto() {
-    source ~/.bashrc
-    if command_exists nvm; then
-		nvm install v8.9.1
-		nvm alias default 8.9.1
-		npm install -g vue-cli
-		npm install -g vue-cli --force
-		# Download the obmenu deb file
-  		git clone https://github.com/Demonstrandum/Saluto.git /tmp/Saluto
-		cd /tmp/Saluto
-  		sh ./install.sh
-		echo "Successfully installed the Saluto installed"
-    fi
-}
+final_steps() {
+    cp -rf $OBMENU/obmenu/* ~/.config/obmenu-generator/.
+    obmenu-generator -p -i
+    
 
+}
 linkConfig
 installRustup
 installStarshipAndFzf
