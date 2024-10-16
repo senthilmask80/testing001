@@ -251,6 +251,65 @@ final_steps() {
     obmenu-generator -p -i
 }
 
+create_users() {
+if [ $(id -u) -eq 0 ]; then
+read -p "Enter username : " username
+read -p "Enter password : " password
+GROUP=Proxmox-DE
+
+
+egrep "^$username" /etc/passwd >/dev/null
+
+if id "$username" &>/dev/null; then
+	echo "User $username already exists. Skipping..."
+fi
+
+# Create personal group with the same name as the user
+if ! getent group "$username" &>/dev/null; then
+	if ! groupadd "$username" 2>/dev/null; then
+		echo "Failed to create group $username. Permission denied."
+	fi
+		echo "\nGroup $username created."
+	fi
+
+	# Create the user with the personal group
+	if ! useradd -m -g "$username" -s /bin/bash "$username" 2>/dev/null; then
+		echo "Failed to create user $username. Permission denied."
+	fi
+	echo "User $username created with home directory."
+
+	if ! getent group "$GROUP" &>/dev/null; then
+		if ! groupadd "$GROUP" 2>/dev/null; then
+			echo "Failed to create group $GROUP. Permission denied."
+		fi
+		echo "Group $GROUP created."
+	fi
+	if ! usermod -aG "$GROUP" "$username" 2>/dev/null; then
+		echo "Failed to add user $username to group $group. Permission denied."
+	fi
+		echo "User $username added to group $group."
+
+	# Set up home directory permissions
+	chmod 700 "/home/$username"
+	chown "$username:$username" "/home/$username"
+	echo "$username:$password" | sudo chpasswd
+	echo "User creation process completed." 
+	chown -R :$GROUP /opt/Proxmox-DE
+ 	su - $username
+	cp -rf $PACKAGER/obmenu-generator/ ~/.config/
+    	cp -rf $PACKAGER/openbox/ ~/.config/
+    	cp -rf $PACKAGER/backgrounds/ ~/.config/
+    	cp -rf $PACKAGER/dunst/ ~/.config/
+    	cp -rf $PACKAGER/kitty/ ~/.config/
+    	cp -rf $PACKAGER/picom/ ~/.config/
+    	cp -rf $PACKAGER/tint2/ ~/.config/
+	chmod +x ~/.local/bin/obmenu-generator
+    	chmod 755 ~/.local/bin/obmenu-generator
+    	obmenu-generator -p -i
+fi
+}
+
+
 linkConfig
 installRustup
 installStarshipAndFzf
@@ -259,4 +318,4 @@ create_fastfetch_config
 install_Obmenu
 installNVM
 final_steps
-# create_users
+create_users
