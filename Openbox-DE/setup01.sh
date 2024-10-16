@@ -208,7 +208,17 @@ installNVM() {
 
     if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; then
         echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
-        
+        # I chose the latest LTS version, by the time I'm writing this * Gist *, it's v8.9.1. You can install it by typing:
+	nvm install v8.9.1
+	# To set a version of the node as default, run the following command:
+	nvm alias default 8.9.1
+	# Installing the vue-cli
+	npm install -g vue-cli
+	npm install -g vue-cli --force
+ 	if ! curl -o- https://raw.githubusercontent.com/Demonstrandum/Saluto/refs/heads/master/install.sh | bash; then
+		echo "Successfully installed the Saluto installed"
+        return
+        fi
     fi
 }
 
@@ -233,5 +243,4 @@ installZoxide
 create_fastfetch_config
 install_Obmenu
 installNVM
-install_Saluto
 create_users
