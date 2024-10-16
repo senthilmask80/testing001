@@ -200,16 +200,9 @@ install_Obmenu() {
 }
 
 installNVM() {
-    #source ~/.bashrc
+    source ~/.bashrc
     if command_exists nvm; then
-        echo "NVM and NodeJS already installed"
-        return
-    fi
-
-    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh; then
-        echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
-	source ~/.bashrc
-        # I chose the latest LTS version, by the time I'm writing this * Gist *, it's v8.9.1. You can install it by typing:
+	# I chose the latest LTS version, by the time I'm writing this * Gist *, it's v8.9.1. You can install it by typing:
 	nvm install v8.9.1
 	# To set a version of the node as default, run the following command:
 	nvm alias default 8.9.1
@@ -221,7 +214,13 @@ installNVM() {
 	cd /tmp/Saluto
   	sh ./install.sh
 	echo "Successfully installed the Saluto installed"
+        return
     fi
+
+    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh; then
+        echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
+    fi 	
+
 }
 
 install_Saluto() {
@@ -246,5 +245,5 @@ installZoxide
 create_fastfetch_config
 install_Obmenu
 installNVM
-# install_Saluto
+install_Saluto
 # create_users
