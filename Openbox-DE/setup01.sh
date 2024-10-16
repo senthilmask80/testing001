@@ -10,7 +10,7 @@ GREEN='\033[0;32m'
 SCRIPTPATH="$( dirname "$( cd "$(dirname "$0")" >/dev/null 2>&1 || exit ; pwd -P )" )"
 PROXDIR="/opt/Proxmox-DE"
 PROXPACK="/opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/debian-packages.list"
-PACKAGER=""
+PACKAGER="/opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/"
 SUDO_CMD=""
 SUGROUP=""
 GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
@@ -49,17 +49,17 @@ then
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/* 
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/fastfetch-linux-amd64.deb
+    sudo apt-get install $PACKAGER/fastfetch-linux-amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
     
     # Download the webkit-lightdm deb file
-    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/web-greeter-3.5.3-debian.deb
+    sudo apt-get install $PACKAGER/web-greeter-3.5.3-debian.deb
     sudo apt-get install -f
     echo "Successfully installed the web-greeter"
 			
     # Download the lightdm-webkit2-greeter deb file
-    sudo apt-get install /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages//lightdm-webkit2-greeter.deb
+    sudo apt-get install $PACKAGER/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 			
@@ -194,6 +194,12 @@ install_Obmenu() {
 	#curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
 	cpan -i File::DesktopEntry
 	#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
+
+    # Download the obmenu deb file
+    sudo apt-get install $PACKAGER/obmenu-generator_0.91-1_all.deb
+    sudo apt-get install -f
+    echo "Successfully installed the lightdm-webkit2-greeter"
+
         exit 1
 }
 
