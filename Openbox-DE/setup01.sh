@@ -193,7 +193,7 @@ install_Obmenu() {
 	./Build
 	./Build test
     sudo ./Build install
-    cp -rf $OBMENU/obmenu/ ~/.local/bin/
+    cp -rf $OBMENU/obmenu/* ~/.local/bin/.
     obmenu-generator -p -i
     echo "Successfully installed the obmenu-generator"
     exit 1
