@@ -14,6 +14,9 @@ PACKAGER="/opt/Proxmox-DE/Openbox-DE/Openbox-DE/Packages/"
 SUDO_CMD=""
 SUGROUP=""
 GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
+OBMENU="$PROXDIR/Openbox-DE/Openbox-DE"
+mkdir -p ~/.local/bin/
+mkdir -p ~/.config/obmenu-generator
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
@@ -196,11 +199,15 @@ install_Obmenu() {
 	#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
 
     # Download the obmenu deb file
-    sudo apt-get install $PACKAGER/obmenu-generator_0.91-1_all.deb
-    sudo apt-get install -f
+    git clone https://github.com/trizen/Linux-DesktopFiles.git /tmp/Linux-DesktopFiles
+    cd Linux-DesktopFiles
+    perl Build.PL
+	./Build
+	./Build test
+    sudo ./Build install
+    cp -rf $OBMENU/obmenu/ ~/.local/bin/
     echo "Successfully installed the lightdm-webkit2-greeter"
-
-        exit 1
+    exit 1
 }
 
 install_Saluto() {
