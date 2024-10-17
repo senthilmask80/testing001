@@ -330,15 +330,19 @@ if ! getent group "$username" &>/dev/null; then
     	chmod 755 /home/$username/.local/bin/fbmenugen
     	obmenu-generator -p -i
      	fbmenugen -g -i
+      	linkConfig
+	installStarshipAndFzf
+	installZoxide
+	create_fastfetch_config
 fi
 }
 
 linkConfig
-installRustup
 installStarshipAndFzf
 installZoxide
 create_fastfetch_config
 install_Obmenu
 installNVM
 final_steps
+installRustup
 create_users
