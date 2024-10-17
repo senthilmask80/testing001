@@ -68,6 +68,8 @@ then
     sudo apt-get install $PACKAGER/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
+
+    chmod -R 755 /usr/share/lightdm-webkit/themes/
 			
     # To enable and active the services
     xdg-user-dirs-update
@@ -257,7 +259,6 @@ final_steps() {
     chmod 755 ~/.local/bin/obmenu-generator
     chmod +x ~/.local/bin/fbmenugen
     chmod 755 ~/.local/bin/fbmenugen
-    chmod -R 755 /usr/share/lightdm-webkit/themes/
     obmenu-generator -p -i
     fbmenugen -g -i
 }
@@ -327,7 +328,6 @@ if ! getent group "$username" &>/dev/null; then
     	chmod 755 /home/$username/.local/bin/obmenu-generator
      	chmod +x /home/$username/.local/bin/fbmenugen
     	chmod 755 /home/$username/.local/bin/fbmenugen
-     	chmod -R 755 /usr/share/lightdm-webkit/themes/
     	obmenu-generator -p -i
      	fbmenugen -g -i
 fi
