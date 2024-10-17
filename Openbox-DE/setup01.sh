@@ -203,9 +203,9 @@ install_Obmenu() {
 }
 
 installNVM() {
-    source ~/.bashrc
     if command_exists nvm; then
 	# I chose the latest LTS version, by the time I'm writing this * Gist *, it's v8.9.1. You can install it by typing:
+ 	source ~/.bashrc
 	nvm install v8.9.1
 	# To set a version of the node as default, run the following command:
 	nvm alias default 8.9.1
