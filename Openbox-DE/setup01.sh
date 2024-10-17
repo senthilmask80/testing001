@@ -18,6 +18,7 @@ GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
 mkdir -p ~/.local/bin/
 mkdir -p ~/.config/obmenu-generator
 mkdir -p ~/.config/fbmenugen
+mkdir -p /usr/share/backgrounds
 mkdir -p $HOME/.nvm
 
 if [ ! -d "$PROXDIR" ]; then
