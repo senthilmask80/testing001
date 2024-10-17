@@ -239,7 +239,8 @@ final_steps() {
     cp -rf $PACKAGER/obmenu-generator/ ~/.config/
     cp -rf $PACKAGER/obmenu-generator/config.pl ~/.config/fbmenugen/config.pl
     cp -rf $PACKAGER/obmenu-generator/schema.pl ~/.config/fbmenugen/schema.pl
-    cp -rf $PACKAGER/obmenu-generator/fbmenugen ~/local/bin/fbmenugen
+    cp -rf $PACKAGER/obmenu-generator/obmenu-generator ~/.local/bin/obmenu-generator
+    cp -rf $PACKAGER/obmenu-generator/fbmenugen ~/.local/bin/fbmenugen
     cp -rf $PACKAGER/openbox/ ~/.config/
     cp -rf $PACKAGER/backgrounds/ ~/.config/
     cp -rf $PACKAGER/dunst/ ~/.config/
@@ -309,6 +310,8 @@ if ! getent group "$username" &>/dev/null; then
  	cp -rf $PACKAGER/obmenu-generator/ /home/$username/.config/
   	cp -rf $PACKAGER/obmenu-generator/schema.pl /home/$username/.config/fbmenugen/schema.pl
    	cp -rf $PACKAGER/obmenu-generator/config.pl /home/$username/.config/fbmenugen/config.pl
+    	cp -rf $PACKAGER/obmenu-generator/obmenu-generator /home/$username/.local/bin/obmenu-generator
+    	cp -rf $PACKAGER/obmenu-generator/fbmenugen /home/$username/.local/bin/fbmenugen
     	cp -rf $PACKAGER/openbox/ /home/$username/.config/
     	cp -rf $PACKAGER/backgrounds/ /home/$username/.config/
     	cp -rf $PACKAGER/dunst/ /home/$username/.config/
