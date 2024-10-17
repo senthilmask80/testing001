@@ -217,7 +217,7 @@ installNVM() {
         return
     fi
 
-    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | sh; then
+    if ! curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.40.1/install.sh | bash; then
         echo "${RED}Something went wrong during NVM and NodeJS install!${RC}"
 	# I chose the latest LTS version, by the time I'm writing this * Gist *, it's v8.9.1. You can install it by typing:
 	nvm install v8.9.1
