@@ -257,6 +257,7 @@ final_steps() {
     chmod 755 ~/.local/bin/obmenu-generator
     chmod +x ~/.local/bin/fbmenugen
     chmod 755 ~/.local/bin/fbmenugen
+    chmod -R 755 /usr/share/lightdm-webkit/themes/
     obmenu-generator -p -i
     fbmenugen -g -i
 }
@@ -326,6 +327,7 @@ if ! getent group "$username" &>/dev/null; then
     	chmod 755 /home/$username/.local/bin/obmenu-generator
      	chmod +x /home/$username/.local/bin/fbmenugen
     	chmod 755 /home/$username/.local/bin/fbmenugen
+     	chmod -R 755 /usr/share/lightdm-webkit/themes/
     	obmenu-generator -p -i
      	fbmenugen -g -i
 fi
