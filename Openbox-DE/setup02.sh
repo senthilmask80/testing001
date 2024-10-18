@@ -19,6 +19,8 @@ mkdir -p ~/.config/fbmenugen
 mkdir -p /usr/share/backgrounds
 mkdir -p /usr/share/lightdm-webkit/themes/
 mkdir -p $HOME/.nvm
+mkdir -p $HOME/.fluxbox
+touch $HOME/.fluxbox/menu
 
 chmod -R 755 /usr/share/lightdm-webkit/themes/
 
@@ -102,23 +104,27 @@ install_Obmenu() {
         echo "obmenu-generator already installed"
         return
     else
-	cpan -i Gtk3
-	#curl -L http://cpanmin.us | perl - --sudo Gtk3
-	cpan -i Data::Dump
-	#curl -L http://cpanmin.us | perl - --sudo Data::Dump
-	cpan -i Linux::DesktopFiles
-	#curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
-	cpan -i File::DesktopEntry
-	#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
+	#cpan -i Gtk3
+	curl -L http://cpanmin.us | perl - --sudo Gtk3
+	#cpan -i Data::Dump
+	curl -L http://cpanmin.us | perl - --sudo Data::Dump
+	#cpan -i Linux::DesktopFiles
+	curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
+	#cpan -i File::DesktopEntry
+	curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
 	#Installation process: place the obmenu-generator file inside your PATH
     	#place the schema.pl file inside ~/.config/obmenu-generator/
-	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/obmenu-generator /usr/local/bin/obmenu-generator
- 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl $HOME/.config/obmenu-genrator/config.pl
-  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/schema.pl $HOME/.config/obmenu-genrator/schema.pl
+     	chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/obmenu-generator
+      	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/obmenu-generator /usr/local/bin/obmenu-generator
+ 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl /$HOME/.config/obmenu-genrator/config.pl
+  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/schema.pl /$HOME/.config/obmenu-genrator/schema.pl
    
 	#Installation process: place the fbmenugen file inside your PATH
     	#place the schema.pl file inside ~/.config/fbmenugen/
+     	chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/fbmenugen
 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/fbmenugen /usr/local/bin/fbmenugen
+ 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl /$HOME/.config/fbmenugen/config.pl
+  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl /$HOME/.config/fbmenugen/schema.pl
     fi
 }
 
