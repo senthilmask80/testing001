@@ -171,6 +171,8 @@ install_blesh() {
 final() {
 	chmod +x /opt/Proxmox/Openbox-DE/Openbox-DE/bash/00-bashrc.sh
 	cp /opt/Proxmox/Openbox-DE/Openbox-DE/bash/00-bashrc.sh /etc/profile.d/00-bashrc.sh
+ 	cp /opt/Proxmox/Openbox-DE/Openbox-DE/bash/config.jsonc /etc/profile.d/config.jsonc
+	cp /opt/Proxmox/Openbox-DE/Openbox-DE/bash/starship.toml /etc/profile.d/starship.toml  
 }
 
 install_Packages
