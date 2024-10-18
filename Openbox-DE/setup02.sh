@@ -51,6 +51,15 @@ then
     sudo apt update && sudo apt upgrade -y
     sudo apt-get -y --ignore-missing install $(< $PROXDIR/Openbox-DE/Openbox-DE/Scripts/debian-packages.list)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
+    # To enable and active the services
+    xdg-user-dirs-update
+    sudo systemctl is-active --quiet avahi-daemon
+    sudo systemctl is-enabled --quiet avahi-daemon
+    sudo systemctl is-active --quiet acpid
+    sudo systemctl is-enabled --quiet acpid
+    sudo systemctl is-active --quiet lightdm
+    sudo systemctl is-enabled --quiet lightdm
+
 elif [ -x "$(command -v dnf)" ];
 then
     sudo dnf update -y 
