@@ -87,6 +87,12 @@ install_Packages() {
     chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
     bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
     chmod -R 755 /usr/share/lightdm-webkit/themes/
+    # Set default lightdm-webkit2-greeter theme to litarvan
+    sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = litarvan #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
+
+    # Set default lightdm greeter to lightdm-webkit2-greeter
+    sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
+
     echo "Successfully installed the lightdm-webkit2-greeter"
 }
 
@@ -162,8 +168,13 @@ install_blesh() {
 	[[ ${BLE_VERSION-} ]] && ble-attach
 }
 
+final() {
+	cp /opt/Proxmox/Openbox-DE/Openbox-DE/bash/00-bashrc.sh /etc/profile.d/00-bashrc.sh
+}
+
 install_Packages
 install_Obmenu
 install_Chezmoi
 install_StarshipAndFzf
 install_blesh
+final
