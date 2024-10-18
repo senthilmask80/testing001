@@ -161,7 +161,17 @@ install_StarshipAndFzf() {
     fi
 }
 
+install_blesh() {
+	curl -LO https://github.com/akinomyoga/ble.sh/releases/download/v0.4.0-devel3/ble-0.4.0-devel3.tar.xz
+ 	tar xJf ble-0.4.0-devel3.tar.xz -C ~/.local/share/blesh
+  	# Add the following line near the top of ~/.bashrc
+	[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+	# Add the following line at the end of ~/.bashrc
+	[[ ${BLE_VERSION-} ]] && ble-attach
+}
+
 install_Packages
 install_Obmenu
 install_Chezmoi
 install_StarshipAndFzf
+install_blesh
