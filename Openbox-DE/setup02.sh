@@ -138,7 +138,7 @@ install_Chezmoi() {
       	fi
 }
 
-installStarshipAndFzf() {
+install_StarshipAndFzf() {
     # Install the Nerd Fonts
     chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/Nerd-Fonts.sh
     bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/Nerd-Fonts.sh
@@ -164,3 +164,4 @@ installStarshipAndFzf() {
 install_Packages
 install_Obmenu
 install_Chezmoi
+install_StarshipAndFzf
