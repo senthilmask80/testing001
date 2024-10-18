@@ -12,10 +12,7 @@ PROXDIR="/opt/Proxmox-DE"
 SUDO_CMD=""
 SUGROUP=""
 GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
-
-mkdir -p $HOME/.nvm
-mkdir -p $HOME/.fluxbox
-
+mkdir -p /usr/share/backgrounds
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
