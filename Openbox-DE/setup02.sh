@@ -59,6 +59,7 @@ then
     sudo systemctl is-enabled --quiet acpid
     sudo systemctl is-active --quiet lightdm
     sudo systemctl is-enabled --quiet lightdm
+    echo "${GREEN}LightDM and Openbox Successfully Installed${RC}"
 elif [ -x "$(command -v dnf)" ];
 then
     sudo dnf update -y 
