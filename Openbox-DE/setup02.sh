@@ -17,7 +17,10 @@ mkdir -p ~/.local/bin/
 mkdir -p ~/.config/obmenu-generator
 mkdir -p ~/.config/fbmenugen
 mkdir -p /usr/share/backgrounds
+mkdir -p /usr/share/lightdm-webkit/themes/
 mkdir -p $HOME/.nvm
+
+chmod -R 755 /usr/share/lightdm-webkit/themes/
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
@@ -87,8 +90,6 @@ install_Packages() {
     sudo apt-get install $PROXDIR/Openbox-DE/Openbox-DE/Packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
-
-    chmod -R 755 /usr/share/lightdm-webkit/themes/
 }
 
 install_Packages
