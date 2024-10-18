@@ -76,6 +76,14 @@ On_IWhite='\033[0;107m'   # White
 
 iatest=$(expr index "$-" i)
 
+xdg-user-dirs-update
+mkdir -p $HOME/.local/bin/
+mkdir -p $HOME/.config/obmenu-generator
+mkdir -p $HOME/.config/fbmenugen
+mkdir -p $HOME/.nvm
+mkdir -p $HOME/.fluxbox
+touch $HOME/.fluxbox/menu
+
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
@@ -575,3 +583,4 @@ eval "$(zoxide init bash)"
 [[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
 # Add the following line at the end of ~/.bashrc
 [[ ${BLE_VERSION-} ]] && ble-attach
+
