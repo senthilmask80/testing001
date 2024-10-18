@@ -163,7 +163,8 @@ install_StarshipAndFzf() {
 
 install_blesh() {
 	curl -LO https://github.com/akinomyoga/ble.sh/releases/download/v0.4.0-devel3/ble-0.4.0-devel3.tar.xz
- 	tar xJf ble-0.4.0-devel3.tar.xz -C ~/.local/share/blesh
+ 	tar xJf ble-0.4.0-devel3.tar.xz -C ~/.local/share/
+  	mv ~/.local/share/ble-0.4.0-devel3 ~/.local/share/blesh
   	# Add the following line near the top of ~/.bashrc
 	[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
 	# Add the following line at the end of ~/.bashrc
