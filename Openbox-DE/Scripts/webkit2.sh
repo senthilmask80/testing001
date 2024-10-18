@@ -18,4 +18,10 @@ npm install -g vue-cli
 
 npm install -g vue-cli --force
 
-bash /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Themes/Saluto/install.sh
+# install the lightdm-webkit2-greeter themes Saluto
+git clone https://github.com/https://github.com/Demonstrandum/Saluto.git /tmp/Saluto/
+
+cd /tmp/Saluto/
+sh ./install.sh
+
+cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
