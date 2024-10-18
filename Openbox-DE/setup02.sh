@@ -1,4 +1,4 @@
-#!/bin/bash
+#! /bin/bash
 
 RC='\033[0m'
 RED='\033[0;31m'
@@ -90,6 +90,10 @@ install_Packages() {
     sudo apt-get install $PROXDIR/Openbox-DE/Openbox-DE/Packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
+
+    # Install the Lightdm-Webkit2-greeter source file
+    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    
 }
 
 install_Packages
