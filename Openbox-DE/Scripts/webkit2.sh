@@ -23,5 +23,3 @@ git clone https://github.com/Demonstrandum/Saluto.git /tmp/Saluto/
 
 cd /tmp/Saluto/
 sh ./install.sh
-
-cd "$PROXDIR/Openbox-DE/Openbox-DE" || exit
