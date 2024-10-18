@@ -72,3 +72,23 @@ else
     echo "FAILED TO INSTALL PACKAGE: Package manager not found. You must manually install: "${packagesNeeded[@]}"">&2;
 fi
 
+install_Packages() {
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Openbox-DE/Packages/fastfetch-linux-amd64.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+    
+    # Download the webkit-lightdm deb file
+    sudo apt-get install $PROXDIR/Openbox-DE/Openbox-DE/Packages/web-greeter-3.5.3-debian.deb
+    sudo apt-get install -f
+    echo "Successfully installed the web-greeter"
+			
+    # Download the lightdm-webkit2-greeter deb file
+    sudo apt-get install $PROXDIR/Openbox-DE/Openbox-DE/Packages/lightdm-webkit2-greeter.deb
+    sudo apt-get install -f
+    echo "Successfully installed the lightdm-webkit2-greeter"
+
+    chmod -R 755 /usr/share/lightdm-webkit/themes/
+}
+
+install_Packages
