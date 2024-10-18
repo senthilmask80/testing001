@@ -110,6 +110,15 @@ install_Obmenu() {
 	#curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
 	cpan -i File::DesktopEntry
 	#curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
+	#Installation process: place the obmenu-generator file inside your PATH
+    	#place the schema.pl file inside ~/.config/obmenu-generator/
+	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/obmenu-generator /usr/local/bin/obmenu-generator
+ 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl $HOME/.config/obmenu-genrator/config.pl
+  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/schema.pl $HOME/.config/obmenu-genrator/schema.pl
+   
+	#Installation process: place the fbmenugen file inside your PATH
+    	#place the schema.pl file inside ~/.config/fbmenugen/
+	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/fbmenugen /usr/local/bin/fbmenugen
     fi
 }
 
