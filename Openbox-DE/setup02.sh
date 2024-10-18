@@ -137,7 +137,29 @@ install_Chezmoi() {
     		echo "${RED}Something went wrong during chezmoi install!${RC}"
       	fi
 }
- 	
+
+installStarshipAndFzf() {
+    # Install the Nerd Fonts
+    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/Nerd-Fonts.sh
+    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/Nerd-Fonts.sh
+    echo "Successfully installed the Nerd Fonts"
+    
+    if command_exists starship; then
+        echo "Starship already installed"
+        return
+    fi
+
+    if ! curl -sS https://starship.rs/install.sh | sh; then
+        echo "${RED}Something went wrong during starship install!${RC}"
+        exit 1
+    fi
+    if command_exists fzf; then
+        echo "Fzf already installed"
+    else
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    fi
+}
 
 install_Packages
 install_Obmenu
