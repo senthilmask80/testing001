@@ -19,7 +19,7 @@ npm install -g vue-cli
 npm install -g vue-cli --force
 
 # install the lightdm-webkit2-greeter themes Saluto
-git clone https://github.com/https://github.com/Demonstrandum/Saluto.git /tmp/Saluto/
+git clone https://github.com/Demonstrandum/Saluto.git /tmp/Saluto/
 
 cd /tmp/Saluto/
 sh ./install.sh
