@@ -128,5 +128,17 @@ install_Obmenu() {
     fi
 }
 
+install_Chezmoi() {
+	if command_exists chezmoi; then
+ 		echo "chezmoi already installed"
+   		return
+  	fi
+   	if ! curl -fsLS get.chezmoi.io | sh; then
+    		echo "${RED}Something went wrong during chezmoi install!${RC}"
+      	fi
+}
+ 	
+
 install_Packages
 install_Obmenu
+install_Chezmoi
