@@ -13,16 +13,9 @@ SUDO_CMD=""
 SUGROUP=""
 GITPATH="$PROXDIR/Openbox-DE/Openbox-DE/bash"
 
-mkdir -p ~/.local/bin/
-mkdir -p ~/.config/obmenu-generator
-mkdir -p ~/.config/fbmenugen
-mkdir -p /usr/share/backgrounds
-mkdir -p /usr/share/lightdm-webkit/themes/
 mkdir -p $HOME/.nvm
 mkdir -p $HOME/.fluxbox
-touch $HOME/.fluxbox/menu
 
-chmod -R 755 /usr/share/lightdm-webkit/themes/
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
@@ -96,6 +89,7 @@ install_Packages() {
     # Install the Lightdm-Webkit2-greeter source file
     chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
     bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    chmod -R 755 /usr/share/lightdm-webkit/themes/
     echo "Successfully installed the lightdm-webkit2-greeter"
 }
 
