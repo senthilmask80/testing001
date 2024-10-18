@@ -169,6 +169,7 @@ install_blesh() {
 }
 
 final() {
+	chmod +x /opt/Proxmox/Openbox-DE/Openbox-DE/bash/00-bashrc.sh
 	cp /opt/Proxmox/Openbox-DE/Openbox-DE/bash/00-bashrc.sh /etc/profile.d/00-bashrc.sh
 }
 
