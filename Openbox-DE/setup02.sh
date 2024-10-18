@@ -49,7 +49,7 @@ then
 elif [ -x "$(command -v apt-get)" ];
 then
     sudo apt update && sudo apt upgrade -y
-    sudo apt-get -y --ignore-missing install $(< $PRODIR/Openbox-DE/Openbox-DE/Scripts/debian-packages.list)
+    sudo apt-get -y --ignore-missing install $(< $PROXDIR/Openbox-DE/Openbox-DE/Scripts/debian-packages.list)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
 elif [ -x "$(command -v dnf)" ];
 then
