@@ -17,3 +17,5 @@ nvm alias default 8.9.1
 npm install -g vue-cli
 
 npm install -g vue-cli --force
+
+bash /opt/Proxmox-DE/Openbox-DE/Openbox-DE/Themes/Saluto/install.sh
