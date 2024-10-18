@@ -116,15 +116,15 @@ install_Obmenu() {
     	#place the schema.pl file inside ~/.config/obmenu-generator/
      	chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/obmenu-generator
       	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/obmenu-generator /usr/local/bin/obmenu-generator
- 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl /$HOME/.config/obmenu-genrator/config.pl
-  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/schema.pl /$HOME/.config/obmenu-genrator/schema.pl
+ 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl $HOME/.config/obmenu-generator/config.pl
+  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/schema.pl $HOME/.config/obmenu-generator/schema.pl
    
 	#Installation process: place the fbmenugen file inside your PATH
     	#place the schema.pl file inside ~/.config/fbmenugen/
      	chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/fbmenugen
 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/fbmenugen /usr/local/bin/fbmenugen
- 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl /$HOME/.config/fbmenugen/config.pl
-  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl /$HOME/.config/fbmenugen/schema.pl
+ 	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl $HOME/.config/fbmenugen/config.pl
+  	cp $PROXDIR/Openbox-DE/Openbox-DE/Packages/obmenu-generator/config.pl $HOME/.config/fbmenugen/schema.pl
     fi
 }
 
