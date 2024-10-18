@@ -568,6 +568,16 @@ if [[ $- == *i* ]]; then
     bind '"\C-f":"zi\n"'
 fi
 
+# Bump the maximum number of file descriptors you can have open
+ulimit -n 10240
+
+# Stuff to make wp-install.sh work correctly
+# http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+export LC_CTYPE=C
+# export LANG=C
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
 # NVM 
 
 export NVM_DIR="$HOME/.nvm"
