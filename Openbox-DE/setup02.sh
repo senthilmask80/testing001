@@ -92,8 +92,9 @@ install_Packages() {
     echo "Successfully installed the lightdm-webkit2-greeter"
 
     # Install the Lightdm-Webkit2-greeter source file
+    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
     bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
-    
+    echo "Successfully installed the lightdm-webkit2-greeter"
 }
 
 install_Packages
