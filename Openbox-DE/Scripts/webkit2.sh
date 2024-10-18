@@ -27,4 +27,8 @@ else
 
   cd /tmp/Saluto/
   sh ./install.sh
+
+  cd /tmp/
+  https://github.com/Litarvan/lightdm-webkit-theme-litarvan/releases/download/v3.2.0/lightdm-webkit-theme-litarvan-3.2.0.tar.gz
+  tar xJf lightdm-webkit-theme-litarvan-3.2.0.tar.gz -C /usr/share/lightdm-webkit/themes/
 fi
