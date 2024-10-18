@@ -570,3 +570,8 @@ export PATH=$PATH:"$HOME/.local/bin:$HOME/.cargo/bin:/var/lib/flatpak/exports/bi
 
 eval "$(starship init bash)"
 eval "$(zoxide init bash)"
+
+# Add the following line near the top of ~/.bashrc
+[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+# Add the following line at the end of ~/.bashrc
+[[ ${BLE_VERSION-} ]] && ble-attach
