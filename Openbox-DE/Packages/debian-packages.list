@@ -4,6 +4,10 @@ tar
 bat
 tree
 multitail
+rsync
+mesa-utils
+cmake
+extra-cmake-modules
 wget
 unzip
 fontconfig
