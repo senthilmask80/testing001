@@ -138,3 +138,5 @@ libaccountsservice0
 gnome-control-center
 imagemagick
 xterm
+xclip
+scrot
