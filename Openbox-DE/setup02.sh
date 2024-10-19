@@ -22,7 +22,7 @@ touch $HOME/.fluxbox/menu
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
-    mkdir -p "$PROXDIR"
+    mkdir -p "$PROXDIR/Openbox-DE"
     echo "${GREEN}Proxmox-DE directory created: $PROXDIR${RC}"
 fi
 
@@ -33,6 +33,16 @@ if [ $? -eq 0 ]; then
 	echo "${GREEN}Successfully cloned Openbox-DE repository${RC}"
 else
     	echo "${RED}Failed to clone Openbox-DE repository${RC}"
+exit 1
+fi
+
+if [ -d "$PROXDIR/ProxDot" ]; then rm -rf "$PROXDIR/ProxDot"; fi
+	echo "${YELLOW}Cloning Proxmox-Dotfiles repository into: $PROXDIR/ProxDot${RC}"
+	git clone https://github.com/senthilmask80/Proxmox-Dotfiles "$PROXDIR/ProxDot"
+if [ $? -eq 0 ]; then
+	echo "${GREEN}Successfully cloned Proxmox-Dotfiles repository${RC}"
+else
+    	echo "${RED}Failed to clone Proxmox-Dotfiles repository${RC}"
 exit 1
 fi
 
