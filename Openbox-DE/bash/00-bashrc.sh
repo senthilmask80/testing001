@@ -76,14 +76,6 @@ On_IWhite='\033[0;107m'   # White
 
 iatest=$(expr index "$-" i)
 
-xdg-user-dirs-update
-mkdir -p $HOME/.local/bin/
-mkdir -p $HOME/.config/obmenu-generator
-mkdir -p $HOME/.config/fbmenugen
-mkdir -p $HOME/.nvm
-mkdir -p $HOME/.fluxbox
-touch $HOME/.fluxbox/menu
-
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
@@ -307,7 +299,7 @@ alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
 # Show all logs in /var/log
-alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
+#alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
 # SHA1
 alias sha1='openssl sha1'
