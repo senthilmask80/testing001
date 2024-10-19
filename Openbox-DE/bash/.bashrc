@@ -76,14 +76,6 @@ On_IWhite='\033[0;107m'   # White
 
 iatest=$(expr index "$-" i)
 
-xdg-user-dirs-update
-mkdir -p $HOME/.local/bin/
-mkdir -p $HOME/.config/obmenu-generator
-mkdir -p $HOME/.config/fbmenugen
-mkdir -p $HOME/.nvm
-mkdir -p $HOME/.fluxbox
-touch $HOME/.fluxbox/menu
-
 #######################################################
 # SOURCED ALIAS'S AND SCRIPTS BY zachbrowne.me
 #######################################################
@@ -307,7 +299,7 @@ alias unbz2='tar -xvjf'
 alias ungz='tar -xvzf'
 
 # Show all logs in /var/log
-alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
+#alias logs="sudo find /var/log -type f -exec file {} \; | grep 'text' | cut -d' ' -f1 | sed -e's/:$//g' | grep -v '[0-9]$' | xargs tail -f"
 
 # SHA1
 alias sha1='openssl sha1'
@@ -568,6 +560,16 @@ if [[ $- == *i* ]]; then
     bind '"\C-f":"zi\n"'
 fi
 
+# Bump the maximum number of file descriptors you can have open
+ulimit -n 10240
+
+# Stuff to make wp-install.sh work correctly
+# http://stackoverflow.com/questions/19242275/re-error-illegal-byte-sequence-on-mac-os-x
+export LC_CTYPE=C
+# export LANG=C
+export LC_ALL="en_US.UTF-8"
+export LANG="en_US.UTF-8"
+
 # NVM 
 
 export NVM_DIR="$HOME/.nvm"
@@ -580,7 +582,6 @@ eval "$(starship init bash)"
 eval "$(zoxide init bash)"
 
 # Add the following line near the top of ~/.bashrc
-[[ $- == *i* ]] && source ~/.local/share/blesh/ble.sh --attach=none
+[[ $- == *i* ]] && source $HOME/.local/share/blesh/ble.sh --attach=none
 # Add the following line at the end of ~/.bashrc
 [[ ${BLE_VERSION-} ]] && ble-attach
-
