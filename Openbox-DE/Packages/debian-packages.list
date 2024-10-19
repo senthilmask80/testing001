@@ -135,7 +135,6 @@ python3-ruamel.yaml
 python3-ruamel.yaml.clib
 accountsservice
 libaccountsservice0
-gnome-control-center
 imagemagick
 xterm
 xclip
