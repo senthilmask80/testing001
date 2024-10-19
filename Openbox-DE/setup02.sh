@@ -176,9 +176,19 @@ install_blesh() {
 }
 
 final() {
-	sudo cp /tmp/Openbox-DE/bash/00-bashrc.sh /etc/profile.d/00-bashrc.sh
+	sudo cp /tmp/Openbox-DE/bash/.bashrc /etc/skel/.bashrc
  	sudo cp /tmp/Openbox-DE/bash/config.jsonc /etc/skel/config.jsonc
-	sudo cp /tmp/Openbox-DE/bash/starship.toml /etc/skel/starship.toml  
+	sudo cp /tmp/Openbox-DE/bash/starship.toml /etc/skel/starship.toml
+ 	sudo cp -rf /tmp/Openbox-DE/Packages/backgrounds /etc/skel/
+  	sudo cp -rf /tmp/Openbox-DE/Packages/dunst /etc/skel/
+   	sudo cp -rf /tmp/Openbox-DE/Packages/geany /etc/skel/
+    	sudo cp -rf /tmp/Openbox-DE/Packages/kitty /etc/skel/
+     	sudo cp -rf /tmp/Openbox-DE/Packages/openbox /etc/skel/
+      	sudo cp -rf /tmp/Openbox-DE/Packages/picom /etc/skel/
+       	sudo cp -rf /tmp/Openbox-DE/Packages/tint2 /etc/skel/
+ 	sudo cp -rf $HOME/.config/ /etc/skel/
+  	sudo cp -rf $HOME/.local/ /etc/skel/
+   	sudo cp -rf $HOME/.fluxbox/ /etc/skel/
 }
 
 install_Packages
