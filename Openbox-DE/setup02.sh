@@ -176,10 +176,9 @@ install_blesh() {
 }
 
 final() {
-	sudo chmod +x /tmp/Openbox-DE/Openbox-DE/bash/00-bashrc.sh
 	sudo cp /tmp/Openbox-DE/bash/00-bashrc.sh /etc/profile.d/00-bashrc.sh
- 	sudo cp /tmp/Openbox-DE/bash/config.jsonc /etc/profile.d/config.jsonc
-	sudo cp /tmp/Openbox-DE/bash/starship.toml /etc/profile.d/starship.toml  
+ 	sudo cp /tmp/Openbox-DE/bash/config.jsonc /etc/skel/config.jsonc
+	sudo cp /tmp/Openbox-DE/bash/starship.toml /etc/skel/starship.toml  
 }
 
 install_Packages
