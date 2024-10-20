@@ -172,12 +172,16 @@ final() {
   	sudo cp -rf /tmp/ProxDot/fonts /usr/share/
    	sudo cp -rf /tmp/ProxDot/bin/* /usr/local/bin/.
     	sudo cp -rf /tmp/ProxDot/lightdm/* /etc/lightdm/.
-    	sudo cp -rf /tmp/ProxDot/.config /etc/skel/
-    	sudo cp -rf /tmp/ProxDot/.local /etc/skel/
+    	sudo cp -rf /tmp/ProxDot/config /etc/skel/
+     	sudo mv /etc/skel/config /etc/skel/.config
+    	sudo cp -rf /tmp/ProxDot/local /etc/skel/
+     	sudo mv /etc/skel/local /etc/skel/.local
+      	sudo cp -rf /tmp/ProxDot/fluxbox /etc/skel/
+       	sudo mv /etc/skel/fluxbox /etc/skel/.fluxbox
  	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
  	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
 	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
-   	sudo cp -rf $HOME/.fluxbox/ /etc/skel/
+   	
 }
 
 install_Packages
