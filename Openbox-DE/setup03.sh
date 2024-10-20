@@ -49,7 +49,7 @@ then
 elif [ -x "$(command -v apt-get)" ];
 then
     sudo apt update && sudo apt upgrade -y
-    sudo apt-get -y --ignore-missing install $(< $PROXDIR/Openbox-DE/Scripts/debian-packages.list)
+    sudo apt-get -y --ignore-missing install $(< $PROXDIR/Openbox-DE/Openbox-DE/Scripts/debian-packages.list)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
     # To enable and active the services
     xdg-user-dirs-update
@@ -74,53 +74,53 @@ fi
 
 install_Packages() {
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/bunsen-thunar_11.0-2_all.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/bunsen-thunar_11.0-2_all.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/gammy_0.9.64-1~ld1_amd64.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/gammy_0.9.64-1~ld1_amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/jgmenu_4.4.0-1_amd64.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/jgmenu_4.4.0-1_amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/nala-legacy_0.11.0_amd64.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/nala-legacy_0.11.0_amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/obkey_22.10.16_all.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/obkey_22.10.16_all.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/fastfetch-linux-amd64.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/fastfetch-linux-amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
     
     # Download the webkit-lightdm deb file
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/web-greeter-3.5.3-debian.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/web-greeter-3.5.3-debian.deb
     sudo apt-get install -f
     echo "Successfully installed the web-greeter"
 			
     # Download the lightdm-webkit2-greeter deb file
-    sudo apt-get install $PROXDIR/Openbox-DE/Packages/lightdm-webkit2-greeter.deb
+    sudo apt-get install $PROXDIR/ProxDot/Packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 
     # Install the Lightdm-Webkit2-greeter source file
-    chmod +x $PROXDIR/Openbox-DE/Scripts/webkit2.sh
-    bash $PROXDIR/Openbox-DE/Scripts/webkit2.sh
+    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
     chmod -R 755 /usr/share/lightdm-webkit/themes/
     echo "Successfully installed the lightdm-webkit2-greeter"
 }
@@ -142,10 +142,6 @@ install_Obmenu() {
 }
 
 install_StarshipAndFzf() {
-    # Install the Nerd Fonts
-    chmod +x $PROXDIR/Openbox-DE/Scripts/Nerd-Fonts.sh
-    bash $PROXDIR/Openbox-DE/Scripts/Nerd-Fonts.sh
-    echo "Successfully installed the Nerd Fonts"
     
     if command_exists starship; then
         echo "Starship already installed"
