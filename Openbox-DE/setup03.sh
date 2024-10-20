@@ -84,6 +84,36 @@ fi
 
 install_Packages() {
     # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Packages/bunsen-thunar_11.0-2_all.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Packages/gammy_0.9.64-1~ld1_amd64.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Packages/jgmenu_4.4.0-1_amd64.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Packages/nala-legacy_0.11.0_amd64.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/Openbox-DE/Packages/obkey_22.10.16_all.deb
+    sudo apt-get install -f
+    echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/Openbox-DE/Packages/fastfetch-linux-amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
