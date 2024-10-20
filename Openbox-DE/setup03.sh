@@ -9,16 +9,6 @@ GREEN='\033[0;32m'
 # add variables to top level so can easily be accessed by all functions
 
 PROXDIR="/tmp"
-SUDO_CMD=""
-SUGROUP=""
-GITPATH="$PROXDIR/Openbox-DE/bash"
-mkdir -p /usr/share/backgrounds
-mkdir -p $HOME/.local/bin/
-mkdir -p $HOME/.config/obmenu-generator
-mkdir -p $HOME/.config/fbmenugen
-mkdir -p $HOME/.nvm
-mkdir -p $HOME/.fluxbox
-touch $HOME/.fluxbox/menu
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
@@ -176,12 +166,17 @@ install_StarshipAndFzf() {
 
 
 final() {
-	sudo cp /tmp/Openbox-DE/bash/.bashrc /etc/skel/.bashrc
- 	sudo cp /tmp/Openbox-DE/bash/config.jsonc /etc/skel/config.jsonc
-	sudo cp /tmp/Openbox-DE/bash/starship.toml /etc/skel/starship.toml
- 	sudo cp -rf /tmp/Openbox-DE/Packages/backgrounds /etc/skel/
- 	sudo cp -rf $HOME/.config/ /etc/skel/
-  	sudo cp -rf $HOME/.local/ /etc/skel/
+	sudo cp -rf /tmp/ProxDot/backgrounds /usr/share/
+ 	sudo cp -rf /tmp/ProxDot/themes /usr/share/
+  	sudo cp -rf /tmp/ProxDot/icons /usr/share/
+  	sudo cp -rf /tmp/ProxDot/fonts /usr/share/
+   	sudo cp -rf /tmp/ProxDot/bin/* /usr/local/bin/.
+    	sudo cp -rf /tmp/ProxDot/lightdm/* /etc/lightdm/.
+    	sudo cp -rf /tmp/ProxDot/.config /etc/skel/
+    	sudo cp -rf /tmp/ProxDot/.local /etc/skel/
+ 	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
+ 	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
+	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
    	sudo cp -rf $HOME/.fluxbox/ /etc/skel/
 }
 
