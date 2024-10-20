@@ -74,47 +74,47 @@ fi
 
 install_Packages() {
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/bunsen-thunar_11.0-2_all.deb
+    sudo apt-get install $PROXDIR/ProxDot/packages/bunsen-thunar_11.0-2_all.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
+    sudo apt-get install $PROXDIR/ProxDot/packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/gammy_0.9.64-1~ld1_amd64.deb
+    sudo apt-get install $PROXDIR/ProxDot/packages/gammy_0.9.64-1~ld1_amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/jgmenu_4.4.0-1_amd64.deb
+    sudo apt-get install $PROXDIR/ProxDot/packages/jgmenu_4.4.0-1_amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/nala-legacy_0.11.0_amd64.deb
+    #sudo apt-get install $PROXDIR/ProxDot/packages/nala-legacy_0.11.0_amd64.deb
+    #sudo apt-get install -f
+    #echo "Successfully installed the fastfetch"
+
+    # Install the downloaded deb file using apt-get
+    sudo apt-get install $PROXDIR/proxDot/Packages/obkey_22.10.16_all.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/obkey_22.10.16_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the fastfetch"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install $PROXDIR/ProxDot/Packages/fastfetch-linux-amd64.deb
+    sudo apt-get install $PROXDIR/proxDot/Packages/fastfetch-linux-amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
     
     # Download the webkit-lightdm deb file
-    sudo apt-get install $PROXDIR/ProxDot/Packages/web-greeter-3.5.3-debian.deb
+    sudo apt-get install $PROXDIR/proxDot/Packages/web-greeter-3.5.3-debian.deb
     sudo apt-get install -f
     echo "Successfully installed the web-greeter"
 			
     # Download the lightdm-webkit2-greeter deb file
-    sudo apt-get install $PROXDIR/ProxDot/Packages/lightdm-webkit2-greeter.deb
+    sudo apt-get install $PROXDIR/proxDot/Packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 
@@ -177,11 +177,12 @@ final() {
  	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
  	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
 	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
-   	
+ 	sudo chmod +x /usr/local/bin/obmenu-generator
+  	sudo chmod +x /usr/local/bin/fbmenugen
 }
 
-install_Packages
 install_Obmenu
+install_Packages
 install_StarshipAndFzf
 final
 
