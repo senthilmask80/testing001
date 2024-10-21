@@ -173,8 +173,6 @@ final() {
   	sudo cp -rf $PROXDIR/ProxDot/fonts /usr/share/
    	fc-cache -f
    	sudo cp -rf $PROXDIR/ProxDot/bin/* /usr/local/bin/.
-     	sudo chmod +x /usr/local/bin/obmenu-generator
-  	sudo chmod +x /usr/local/bin/fbmenugen
     	#sudo cp -rf $PROXDIR/ProxDot/lightdm/* /etc/lightdm/.
      	sudo cp -rf $PROXDIR/ProxDot/config /root/
       	sudo mv /root/config /root/.config
