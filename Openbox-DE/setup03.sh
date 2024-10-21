@@ -9,6 +9,7 @@ GREEN='\033[0;32m'
 # add variables to top level so can easily be accessed by all functions
 
 PROXDIR="/tmp"
+mkdir -p $HOME/.local/bin
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
