@@ -85,22 +85,22 @@ install_Packages() {
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/ProxDot/packages/bunsen-thunar_11.0-2_all.deb
     sudo apt-get install -f
-    echo "Successfully installed the fastfetch"
+    echo "Successfully installed the bunsen-thunar"
 
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/ProxDot/packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
     sudo apt-get install -f
-    echo "Successfully installed the fastfetch"
+    echo "Successfully installed the fonts-jetbrains-mono"
 
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/ProxDot/packages/gammy_0.9.64-1~ld1_amd64.deb
     sudo apt-get install -f
-    echo "Successfully installed the fastfetch"
+    echo "Successfully installed the gammy"
 
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/ProxDot/packages/jgmenu_4.4.0-1_amd64.deb
     sudo apt-get install -f
-    echo "Successfully installed the fastfetch"
+    echo "Successfully installed the jqmenu"
 
     # Install the downloaded deb file using apt-get
     #sudo apt-get install $PROXDIR/ProxDot/packages/nala-legacy_0.11.0_amd64.deb
@@ -110,7 +110,7 @@ install_Packages() {
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/proxDot/Packages/obkey_22.10.16_all.deb
     sudo apt-get install -f
-    echo "Successfully installed the fastfetch"
+    echo "Successfully installed the obkey"
 
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/proxDot/Packages/fastfetch-linux-amd64.deb
