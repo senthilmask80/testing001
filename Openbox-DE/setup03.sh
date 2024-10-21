@@ -9,21 +9,15 @@ GREEN='\033[0;32m'
 # add variables to top level so can easily be accessed by all functions
 
 xdg-user-dirs-update
-PROXDIR="/tmp"
+PROXDIR="/opt"
 
-if [ ! -d "$PROXDIR" ]; then
-    echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
-    mkdir -p "$PROXDIR/Openbox-DE"
-    echo "${GREEN}Proxmox-DE directory created: $PROXDIR${RC}"
-fi
-
-if [ -d "$PROXDIR/Openbox-DE" ]; then rm -rf "$PROXDIR/Openbox-DE"; fi
-	echo "${YELLOW}Cloning Openbox-DE repository into: $PROXDIR/Openbox-DE${RC}"
-	git clone https://github.com/senthilmask80/testing001.git "$PROXDIR/Openbox-DE"
+if [ -d "$PROXDIR/Proxmox-DE" ]; then rm -rf "$PROXDIR/Proxmox-DE"; fi
+	echo "${YELLOW}Cloning Proxmox-DE repository into: $PROXDIR/Proxmox-DE${RC}"
+	git clone https://github.com/senthilmask80/testing001.git "$PROXDIR/Proxmox-DE"
 if [ $? -eq 0 ]; then
-	echo "${GREEN}Successfully cloned Openbox-DE repository${RC}"
+	echo "${GREEN}Successfully cloned Proxmox-DE repository${RC}"
 else
-    	echo "${RED}Failed to clone Openbox-DE repository${RC}"
+    	echo "${RED}Failed to clone Proxmox-DE repository${RC}"
 exit 1
 fi
 
@@ -37,7 +31,7 @@ else
 exit 1
 fi
 
-cd "$PROXDIR/Openbox-DE" || exit
+cd "$PROXDIR/ProxDot" || exit
 
 command_exists() {
     command -v "$1" >/dev/null 2>&1
@@ -50,7 +44,7 @@ then
 elif [ -x "$(command -v apt-get)" ];
 then
     sudo apt update && sudo apt upgrade -y
-    sudo apt-get -y --ignore-missing install $(< $PROXDIR/Openbox-DE/Openbox-DE/Scripts/debian-packages.list)
+    sudo apt-get -y --ignore-missing install $(< $PROXDIR/ProxDot/Scripts/debian-packages.list)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
     # To enable and active the services
     xdg-user-dirs-update
@@ -100,30 +94,29 @@ install_Packages() {
     #echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/proxDot/Packages/obkey_22.10.16_all.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/Packages/obkey_22.10.16_all.deb
     sudo apt-get install -f
     echo "Successfully installed the obkey"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/proxDot/Packages/fastfetch-linux-amd64.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/Packages/fastfetch-linux-amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
     
     # Download the webkit-lightdm deb file
-    sudo apt-get install -y $PROXDIR/proxDot/Packages/web-greeter-3.5.3-debian.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/Packages/web-greeter-3.5.3-debian.deb
     sudo apt-get install -f
     echo "Successfully installed the web-greeter"
 			
     # Download the lightdm-webkit2-greeter deb file
-    sudo apt-get install -y $PROXDIR/proxDot/Packages/lightdm-webkit2-greeter.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/Packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 
     # Install the Lightdm-Webkit2-greeter source file
     mkdir -p /usr/share/backgrounds
     mkdir -p /usr/share/lightdm-webkit/themes/
-    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
-    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    bash $PROXDIR/ProxDot/Scripts/webkit2.sh
     chmod -R 755 /usr/share/lightdm-webkit/themes/
     # Set default lightdm-webkit2-greeter theme to litarvan
     sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = litarvan #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
@@ -174,37 +167,34 @@ install_StarshipAndFzf() {
 
 
 final() {
-	sudo cp -rf /tmp/ProxDot/backgrounds /usr/share/
- 	sudo cp -rf /tmp/ProxDot/themes /usr/share/
-  	sudo cp -rf /tmp/ProxDot/icons /usr/share/
-  	sudo cp -rf /tmp/ProxDot/fonts /usr/share/
+	sudo cp -rf $PROXDIR/ProxDot/backgrounds /usr/share/
+ 	sudo cp -rf $PROXDIR/ProxDot/themes /usr/share/
+  	sudo cp -rf $PROXDIR/ProxDot/icons /usr/share/
+  	sudo cp -rf $PROXDIR/ProxDot/fonts /usr/share/
    	fc-cache -f
-   	sudo cp -rf /tmp/ProxDot/bin/* /usr/local/bin/.
+   	sudo cp -rf $PROXDIR/ProxDot/bin/* /usr/local/bin/.
      	sudo chmod +x /usr/local/bin/obmenu-generator
   	sudo chmod +x /usr/local/bin/fbmenugen
-    	#sudo cp -rf /tmp/ProxDot/lightdm/* /etc/lightdm/.
-     	sudo cp -rf /tmp/ProxDot/config /root/
+    	#sudo cp -rf $PROXDIR/ProxDot/lightdm/* /etc/lightdm/.
+     	sudo cp -rf $PROXDIR/ProxDot/config /root/
       	sudo mv /root/config /root/.config
-       	sudo cp -rf /tmp/ProxDot/local /root/
+       	sudo cp -rf $PROXDIR/ProxDot/local /root/
 	sudo mv /root/local /root/.local
- 	sudo cp -rf /tmp/ProxDot/fluxbox /root/
+ 	sudo cp -rf $PROXDIR/ProxDot/fluxbox /root/
   	sudo mv /root/fluxbox/ /root/.fluxbox
-    	sudo cp -rf /tmp/ProxDot/config /etc/skel/
+    	sudo cp -rf $PROXDIR/ProxDot/config /etc/skel/
      	sudo mv /etc/skel/config /etc/skel/.config
-    	sudo cp -rf /tmp/ProxDot/local /etc/skel/
+    	sudo cp -rf $PROXDIR/ProxDot/local /etc/skel/
      	sudo mv /etc/skel/local /etc/skel/.local
-      	sudo cp -rf /tmp/ProxDot/fluxbox /etc/skel/
+      	sudo cp -rf $PROXDIR/ProxDot/fluxbox /etc/skel/
        	sudo mv /etc/skel/fluxbox /etc/skel/.fluxbox
-	sudo cp /tmp/ProxDot/bash/.bashrc /root/.bashrc
- 	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
-  	sudo cp /tmp/ProxDot/bash/config.jsonc /root/config.jsonc
- 	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
-  	sudo cp /tmp/ProxDot/bash/starship.toml /root/starship.toml
-	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
- 	#ln -s /usr/local/bin/obmenu-generator /root/.local/bin/obmenu-generator
- 	#ln -s /usr/local/bin/fbmenugen /root/.local/bin/fbmenugen
-  	#ln -s /usr/local/bin/zoxide /root/.local/bin/zoxide
-   	#ln -s /usr/local/bin/chozmoi /root/.local/bin/chezmoi
+	sudo cp $PROXDIR/ProxDot/bash/.bashrc /root/.bashrc
+ 	sudo cp $PROXDIR/ProxDot/bash/.bashrc /etc/skel/.bashrc
+  	sudo cp $PROXDIR/ProxDot/bash/config.jsonc /root/config.jsonc
+ 	sudo cp $PROXDIR/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
+  	sudo cp $PROXDIR/ProxDot/bash/starship.toml /root/starship.toml
+	sudo cp $PROXDIR/ProxDot/bash/starship.toml /etc/skel/starship.toml
+ 	
 }
 
 install_Obmenu
