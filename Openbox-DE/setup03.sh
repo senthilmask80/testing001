@@ -128,6 +128,14 @@ install_Packages() {
     sed -i 's/^    theme: gruvbox/    theme: LightdmTheme/' /etc/lightdm/web-greeter.yml
     echo "Successfully installed the lightdm-webkit2-greeter"
 
+    # Install the Collorid Themes
+    bash $PROXDIR/ProxDot/Scripts/blue.sh
+    echo " Successfully installed the Collorid Themes"
+
+    # Install the picom
+    bash $PROXDIR/ProxDot/Scripts/picom.sh
+    echo "Successfully installed the picom"
+
 }
 
 install_Obmenu() {
@@ -192,7 +200,8 @@ final() {
  	sudo cp $PROXDIR/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
   	sudo cp $PROXDIR/ProxDot/bash/starship.toml /root/starship.toml
 	sudo cp $PROXDIR/ProxDot/bash/starship.toml /etc/skel/starship.toml
- 	
+ 	sudo chmod +x /root/.local/bin/obmenu-generator
+  	sudo chmod +x /root/.local/bin/fbmenugen
 }
 
 install_Obmenu
