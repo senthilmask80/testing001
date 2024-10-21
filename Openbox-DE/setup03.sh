@@ -9,7 +9,6 @@ GREEN='\033[0;32m'
 # add variables to top level so can easily be accessed by all functions
 
 PROXDIR="/tmp"
-mkdir -p $HOME/.local/bin
 
 if [ ! -d "$PROXDIR" ]; then
     echo "${YELLOW}Creating Proxmox-DE directory: $PROXDIR${RC}"
@@ -178,8 +177,11 @@ final() {
  	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
  	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
 	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
- 	sudo chmod +x /usr/local/bin/obmenu-generator
-  	sudo chmod +x /usr/local/bin/fbmenugen
+ 	mkdir -p $HOME/.local/bin
+	ln -s /usr/local/bin/obmenu-generator $HOME/.local/bin/obmenu-generator
+ 	ln -s /usr/local/bin/fbmenugen $HOME/.local/bin/fbmenugen
+  	ln -s /usr/local/bin/zoxide $HOME/.local/bin/zoxide
+   	ln -s /usr/local/bin/chozmoi $HOME/.local/bin/chezmoi
 }
 
 install_Obmenu
