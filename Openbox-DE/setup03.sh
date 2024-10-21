@@ -178,6 +178,7 @@ final() {
  	sudo cp -rf /tmp/ProxDot/themes /usr/share/
   	sudo cp -rf /tmp/ProxDot/icons /usr/share/
   	sudo cp -rf /tmp/ProxDot/fonts /usr/share/
+   	fc-cache -f
    	sudo cp -rf /tmp/ProxDot/bin/* /usr/local/bin/.
      	sudo chmod +x /usr/local/bin/obmenu-generator
   	sudo chmod +x /usr/local/bin/fbmenugen
@@ -200,10 +201,10 @@ final() {
  	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
   	sudo cp /tmp/ProxDot/bash/starship.toml /root/starship.toml
 	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
- 	ln -s /usr/local/bin/obmenu-generator /root/.local/bin/obmenu-generator
- 	ln -s /usr/local/bin/fbmenugen /root/.local/bin/fbmenugen
-  	ln -s /usr/local/bin/zoxide /root/.local/bin/zoxide
-   	ln -s /usr/local/bin/chozmoi /root/.local/bin/chezmoi
+ 	#ln -s /usr/local/bin/obmenu-generator /root/.local/bin/obmenu-generator
+ 	#ln -s /usr/local/bin/fbmenugen /root/.local/bin/fbmenugen
+  	#ln -s /usr/local/bin/zoxide /root/.local/bin/zoxide
+   	#ln -s /usr/local/bin/chozmoi /root/.local/bin/chezmoi
 }
 
 install_Obmenu
