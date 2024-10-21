@@ -74,22 +74,6 @@ else
 fi
 
 install_Packages() {
-    # Install the Lightdm-Webkit2-greeter source file
-    mkdir -p /usr/share/backgrounds
-    mkdir -p /usr/share/lightdm-webkit/themes/
-    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
-    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
-    chmod -R 755 /usr/share/lightdm-webkit/themes/
-    # Set default lightdm-webkit2-greeter theme to litarvan
-    sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = litarvan #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
-
-    # Set default lightdm greeter to lightdm-webkit2-greeter
-    #sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
-    sed -i 's/^#greeter-session=example-gtk-gnome/greeter-session=lightdm-webkit2-greeter/' /etc/lightdm/lightdm.conf
-    sed -i 's/^#user-session=default/user-session=openbox/' /etc/lightdm/lightdm.conf
-    sed -i 's/^    theme: gruvbox/    theme: LightdmTheme/' /etc/lightdm/web-greeter.yml
-    echo "Successfully installed the lightdm-webkit2-greeter"
-
     # Install the downloaded deb file using apt-get
     sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen-thunar_11.0-2_all.deb
     sudo apt-get install -f
@@ -133,6 +117,22 @@ install_Packages() {
     # Download the lightdm-webkit2-greeter deb file
     sudo apt-get install -y $PROXDIR/proxDot/Packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
+    echo "Successfully installed the lightdm-webkit2-greeter"
+
+    # Install the Lightdm-Webkit2-greeter source file
+    mkdir -p /usr/share/backgrounds
+    mkdir -p /usr/share/lightdm-webkit/themes/
+    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    chmod -R 755 /usr/share/lightdm-webkit/themes/
+    # Set default lightdm-webkit2-greeter theme to litarvan
+    sudo sed -i 's/^webkit_theme\s*=\s*\(.*\)/webkit_theme = litarvan #\1/g' /etc/lightdm/lightdm-webkit2-greeter.conf
+
+    # Set default lightdm greeter to lightdm-webkit2-greeter
+    #sudo sed -i 's/^\(#?greeter\)-session\s*=\s*\(.*\)/greeter-session = lightdm-webkit2-greeter #\1/ #\2g' /etc/lightdm/lightdm.conf
+    sed -i 's/^#greeter-session=example-gtk-gnome/greeter-session=lightdm-webkit2-greeter/' /etc/lightdm/lightdm.conf
+    sed -i 's/^#user-session=default/user-session=openbox/' /etc/lightdm/lightdm.conf
+    sed -i 's/^    theme: gruvbox/    theme: LightdmTheme/' /etc/lightdm/web-greeter.yml
     echo "Successfully installed the lightdm-webkit2-greeter"
 
 }
@@ -192,6 +192,7 @@ final() {
      	sudo mv /etc/skel/local /etc/skel/.local
       	sudo cp -rf /tmp/ProxDot/fluxbox /etc/skel/
        	sudo mv /etc/skel/fluxbox /etc/skel/.fluxbox
+	sudo cp /tmp/ProxDot/bash/.bashrc /root/.bashrc
  	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
   	sudo cp /tmp/ProxDot/bash/config.jsonc /root/config.jsonc
  	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
