@@ -171,7 +171,7 @@ final() {
   	sudo cp -rf /tmp/ProxDot/icons /usr/share/
   	sudo cp -rf /tmp/ProxDot/fonts /usr/share/
    	sudo cp -rf /tmp/ProxDot/bin/* /usr/local/bin/.
-    	sudo cp -rf /tmp/ProxDot/lightdm/* /etc/lightdm/.
+    	#sudo cp -rf /tmp/ProxDot/lightdm/* /etc/lightdm/.
     	sudo cp -rf /tmp/ProxDot/config /etc/skel/
      	sudo mv /etc/skel/config /etc/skel/.config
     	sudo cp -rf /tmp/ProxDot/local /etc/skel/
