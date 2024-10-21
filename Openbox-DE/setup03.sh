@@ -172,6 +172,12 @@ final() {
   	sudo cp -rf /tmp/ProxDot/fonts /usr/share/
    	sudo cp -rf /tmp/ProxDot/bin/* /usr/local/bin/.
     	#sudo cp -rf /tmp/ProxDot/lightdm/* /etc/lightdm/.
+     	sudo cp -rf /tmp/ProxDot/config /root/
+      	sudo mv /root/config /root/.config
+       	sudo cp -rf /tmp/ProxDot/local /root/
+	sudo mv /root/local /root/.local
+ 	sudo cp -rf /tmp/ProxDot/fluxbox /root/
+  	sudo mv /root/fluxbox/ /root/.fluxbox
     	sudo cp -rf /tmp/ProxDot/config /etc/skel/
      	sudo mv /etc/skel/config /etc/skel/.config
     	sudo cp -rf /tmp/ProxDot/local /etc/skel/
@@ -179,10 +185,11 @@ final() {
       	sudo cp -rf /tmp/ProxDot/fluxbox /etc/skel/
        	sudo mv /etc/skel/fluxbox /etc/skel/.fluxbox
  	sudo cp /tmp/ProxDot/bash/.bashrc /etc/skel/.bashrc
+  	sudo cp /tmp/ProxDot/bash/config.jsonc /root/config.jsonc
  	sudo cp /tmp/ProxDot/bash/config.jsonc /etc/skel/config.jsonc
+  	sudo cp /tmp/ProxDot/bash/starship.toml /root/starship.toml
 	sudo cp /tmp/ProxDot/bash/starship.toml /etc/skel/starship.toml
- 	mkdir -p $HOME/.local/bin
-	ln -s /usr/local/bin/obmenu-generator $HOME/.local/bin/obmenu-generator
+ 	ln -s /usr/local/bin/obmenu-generator $HOME/.local/bin/obmenu-generator
  	ln -s /usr/local/bin/fbmenugen $HOME/.local/bin/fbmenugen
   	ln -s /usr/local/bin/zoxide $HOME/.local/bin/zoxide
    	ln -s /usr/local/bin/chozmoi $HOME/.local/bin/chezmoi
