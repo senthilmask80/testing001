@@ -94,22 +94,22 @@ install_Packages() {
     #echo "Successfully installed the fastfetch"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/Packages/obkey_22.10.16_all.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/packages/obkey_22.10.16_all.deb
     sudo apt-get install -f
     echo "Successfully installed the obkey"
 
     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/Packages/fastfetch-linux-amd64.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/packages/fastfetch-linux-amd64.deb
     sudo apt-get install -f
     echo "Successfully installed the fastfetch"
     
     # Download the webkit-lightdm deb file
-    sudo apt-get install -y $PROXDIR/ProxDot/Packages/web-greeter-3.5.3-debian.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/packages/web-greeter-3.5.3-debian.deb
     sudo apt-get install -f
     echo "Successfully installed the web-greeter"
 			
     # Download the lightdm-webkit2-greeter deb file
-    sudo apt-get install -y $PROXDIR/ProxDot/Packages/lightdm-webkit2-greeter.deb
+    sudo apt-get install -y $PROXDIR/ProxDot/packages/lightdm-webkit2-greeter.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 
