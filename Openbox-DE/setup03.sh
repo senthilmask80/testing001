@@ -8,6 +8,7 @@ GREEN='\033[0;32m'
 # Check if the opt directory and Proxmox-DE folder exist, create them if they don't
 # add variables to top level so can easily be accessed by all functions
 
+xdg-user-dirs-update
 PROXDIR="/tmp"
 
 if [ ! -d "$PROXDIR" ]; then
@@ -73,6 +74,14 @@ else
 fi
 
 install_Packages() {
+    # Install the Lightdm-Webkit2-greeter source file
+    mkdir -p /usr/share/backgrounds
+    mkdir -p /usr/share/lightdm-webkit/themes/
+    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
+    chmod -R 755 /usr/share/lightdm-webkit/themes/
+    echo "Successfully installed the lightdm-webkit2-greeter"
+
     # Install the downloaded deb file using apt-get
     sudo apt-get install $PROXDIR/ProxDot/packages/bunsen-thunar_11.0-2_all.deb
     sudo apt-get install -f
@@ -118,11 +127,6 @@ install_Packages() {
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 
-    # Install the Lightdm-Webkit2-greeter source file
-    chmod +x $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
-    bash $PROXDIR/Openbox-DE/Openbox-DE/Scripts/webkit2.sh
-    chmod -R 755 /usr/share/lightdm-webkit/themes/
-    echo "Successfully installed the lightdm-webkit2-greeter"
 }
 
 install_Obmenu() {
