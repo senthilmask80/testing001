@@ -1,4 +1,19 @@
 #! /bin/bash
+
+PROXDIR="/opt"
+
+if [ -d "$PROXDIR/ProxDot" ]; then rm -rf "$PROXDIR/ProxDot"; fi
+	echo "${YELLOW}Cloning Proxmox-Dotfiles repository into: $PROXDIR/ProxDot${RC}"
+	git clone https://github.com/senthilmask80/Proxmox-Dotfiles "$PROXDIR/ProxDot"
+if [ $? -eq 0 ]; then
+	echo "${GREEN}Successfully cloned Proxmox-Dotfiles repository${RC}"
+else
+    	echo "${RED}Failed to clone Proxmox-Dotfiles repository${RC}"
+exit 1
+fi
+
+cd "$PROXDIR/ProxDot" || exit
+
 install_Packages() {
     sudo apt update && sudo apt upgrade -y
     # sudo apt-get -y --ignore-missing install $(< $PROXDIR/ProxDot/Scripts/debian-packages.list)
@@ -72,6 +87,13 @@ install_Packages() {
     bash $PROXDIR/ProxDot/Scripts/picom.sh
     echo "Successfully installed the picom"
 
+    sudo cp -rf $PROXDIR/ProxDot/backgrounds /usr/share/
+    sudo cp -rf $PROXDIR/ProxDot/themes /usr/share/
+    sudo cp -rf $PROXDIR/ProxDot/icons /usr/share/
+    sudo cp -rf $PROXDIR/ProxDot/bin/* /usr/local/bin/.
+    sudo cp -rf $PROXDIR/ProxDot/fonts /usr/share/
+    fc-cache -f
+    
 }
 
 install_Packages
