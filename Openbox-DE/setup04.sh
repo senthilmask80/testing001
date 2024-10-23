@@ -52,9 +52,6 @@ install_Packages() {
 	
 	apt-get install -y ./bunsen-configs_13.1-1_all.deb
 	apt-get install -f
-
-	apt-get install -y ./bunsen-configs-lite_13.1-1_all.deb
-	apt-get install -f
 	echo "Successfully installed the bunsen-configs"
 
 	apt-get install -y ./bunsen-configs-pulse_10.0-1_all.deb
