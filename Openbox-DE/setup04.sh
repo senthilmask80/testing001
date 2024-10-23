@@ -114,14 +114,6 @@ install_Packages() {
 	echo "Successfully installed the bunsen-exit"
 
 	# Install the downloaded deb file using apt-get
-	apt install ./dillo-dbgsym_3.1.1-0.1~bl3_amd64.deb
-	apt install -f
-	
-	apt install ./dillo_3.1.1-0.1bl3_amd64.deb
-	apt install -f
-	echo "Successfully installed the bunsen-dillo"
-
-	# Install the downloaded deb file using apt-get
 	apt install ./jgmenu_4.4.1-2~bpo.bl11+1_amd64.deb 
 	apt install -f
 	echo "Successfully installed the bunsen-jgmenu"
