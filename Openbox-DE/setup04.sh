@@ -20,116 +20,204 @@ install_Packages() {
     # sudo apt-get -y --ignore-missing install $(< $PROXDIR/ProxDot/Scripts/debian-packages.list)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
 
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-common_13.0.1-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
+# Install the downloaded deb file using apt-get
+	apt install ./bunsen-apt-update-checker_13.0-1_all.deb
+	apt install -f
+	
+	apt install ./bunsen-keyring_2023.01.14-1_all.deb
+	apt install -f
+	
+	apt install ./bunsen-python-apt-template_13.0-1_all.deb
+	apt install -f
+
+	apt install ./bunsen-os-release_13.0-1_all.deb
+	apt install -f
+	
+	apt update && apt upgrade && apt autoremove
+	echo "Successfully installed the bunsen-apt-os-release"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-blob_13.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-blob"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-common_13.0.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-common"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-configs-base_13.1-1_all.deb
+	apt install -f
+	
+	apt install ./bunsen-configs_13.1-1_all.deb
+	apt install -f
+
+	apt install ./bunsen-configs-lite_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-configs"
+
+	apt install ./bunsen-configs-pulse_10.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-configs"
+	
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-base_13.0-4_all.deb 
+	apt install -f
+	
+	apt install ./bunsen-meta-lite_13.0-4_all.deb 
+	apt install -f
+	
+	apt install ./bunsen-meta-all_12.1-2_all.deb 
+	apt install -f
+
+	apt install ./bunsen-meta-packaging_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-meta"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-utilities_13.0-1_all.deb 
+	apt install -f
+	echo "Successfully installed the bunsen-utilities"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-pipemenus_13.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-pipemenus"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-ssh_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-ssh"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-vcs_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-vcs"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./xfce4-power-manager-data.deb
+	apt install -f
+	
+	apt install ./xfce4-power-manager-dbgsym.deb
+	apt install -f
+	
+	apt install ./xfce4-power-manager-plugins.deb
+	apt install -f
+
+	apt install ./xfce4-power-manager.deb
+	apt install -f
+	echo "Successfully installed the bunsen-xfce4-power-manager"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-bluetooth_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-bluetooth"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-printer-support_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-printer-support"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-docs_13.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-docs"
+	
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-exit_13.2.1-2_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-exit"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./dillo-dbgsym_3.1.1-0.1~bl3_amd64.deb
+	apt install -f
+	
+	apt install ./dillo_3.1.1-0.1bl3_amd64.deb
+	apt install -f
+	echo "Successfully installed the bunsen-dillo"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./jgmenu_4.4.1-2~bpo.bl11+1_amd64.deb 
+	apt install -f
+	echo "Successfully installed the bunsen-jgmenu"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-conky_13.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-conky"
+	
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-fortune_13.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-fortune"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./terminator_2.1.2-1.1~bl1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-terminator"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./tint2_16.7+bl10r1-1_amd64.deb
+	apt install -f
+	echo "Successfully installed the bunsen-tint2"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-images-base_13.1-1_all.deb
+	apt install -f
+	
+	apt install ./bunsen-images_13.1-1_all.deb
+	apt install -f
+
+	apt install ./bunsen-images-archives_13.0-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-images"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-faenza-icon-theme_13.0-1_all.deb
+	apt install -f
+
+	apt install ./bunsen-numix-icon-theme_13.0-1_all.deb
+	apt install -f
+
+	apt install ./bunsen-paper-icon-theme_13.0-1_all.deb
+	apt install -f
+
+	apt install ./bunsen-papirus-icon-theme_13.0-1_all.deb
+	apt install -f
+
+	apt install ./labbe-material-icons_0.1.0-1_all.deb 
+	apt install -f
+
+	apt install ./material-solarized-suruplusplus-icon-theme_13.0-1_all.deb
+	apt install -f
+
+	wget https://pkg.bunsenlabs.org/debian/pool/main/p/paper-icon-theme/paper-icon-theme_1.5.728%2Bbunsen1-1_all.deb
+	apt install ./paper-icon-theme_1.5.728+bunsen1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-theme"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-java_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-java"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-lamp_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-lamp"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-meta-libreoffice_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-libreoffice"
+
+	# Install the downloaded deb file using apt-get
+	apt install ./bunsen-welcome_13.1-1_all.deb
+	apt install -f
+	echo "Successfully installed the bunsen-welcome"
+
     
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-configs_13.1-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-configs-pulse_10.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-conky_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-exit_13.2.1-2_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-meta-packaging_13.1-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-faenza-icon-theme_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-fortune_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-images-base_13.1-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-    # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-images_13.1-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-images-archives_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-meta-vcs_13.1-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-numix-icon-theme_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-papirus-icon-theme_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-pipemenus_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-thunar_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/bunsen-utilities_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/jgmenu_4.4.1-2~bpo.bl11+1_amd64.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/labbe-material-icons_0.1.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/material-solarized-suruplusplus-icon-theme_13.0-1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/terminator_2.1.2-1.1~bl1_all.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
-     # Install the downloaded deb file using apt-get
-    sudo apt-get install -y $PROXDIR/ProxDot/packages/bunsen/tint2_16.7+bl10r1-1_amd64.deb
-    sudo apt-get install -f
-    echo "Successfully installed the bunsen-thunar"
-
     # Install the downloaded deb file using apt-get
     sudo apt-get install -y $PROXDIR/ProxDot/packages/fonts-jetbrains-mono_2.242+ds-2_all.deb
     sudo apt-get install -f
