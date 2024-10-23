@@ -80,16 +80,16 @@ install_Packages() {
 	echo "Successfully installed the bunsen-vcs"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/xfce4-power-manager-data.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/xfce4-power-manager-data.deb
 	apt install -f
 	
-	apt install .$PROXDIR/ProxDot/packages/xfce4-power-manager-dbgsym.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/xfce4-power-manager-dbgsym.deb
 	apt install -f
 	
-	apt install .$PROXDIR/ProxDot/packages/xfce4-power-manager-plugins.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/xfce4-power-manager-plugins.deb
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/xfce4-power-manager.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/xfce4-power-manager.deb
 	apt install -f
 	echo "Successfully installed the bunsen-xfce4-power-manager"
 
@@ -119,12 +119,12 @@ install_Packages() {
 	echo "Successfully installed the bunsen-fortune"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/terminator_2.1.2-1.1~bl1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/terminator_2.1.2-1.1~bl1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-terminator"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/tint2_16.7+bl10r1-1_amd64.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/tint2_16.7+bl10r1-1_amd64.deb
 	apt install -f
 	echo "Successfully installed the bunsen-tint2"
 
@@ -152,10 +152,10 @@ install_Packages() {
 	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-papirus-icon-theme_13.0-1_all.deb
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/labbe-material-icons_0.1.0-1_all.deb 
+	apt install .$PROXDIR/ProxDot/packages/bunsen/labbe-material-icons_0.1.0-1_all.deb 
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/material-solarized-suruplusplus-icon-theme_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/material-solarized-suruplusplus-icon-theme_13.0-1_all.deb
 	apt install -f
 
 	wget https://pkg.bunsenlabs.org/debian/pool/main/p/paper-icon-theme/paper-icon-theme_1.5.728%2Bbunsen1-1_all.deb
