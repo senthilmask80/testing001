@@ -248,6 +248,11 @@ install_Packages() {
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
 
+    # Download the lightdm-webkit2-greeter deb file
+    sudo apt-get install -y $PROXDIR/ProxDot/packages/obmenu-generator_0.91-1_all.deb
+    sudo apt-get install -f
+    echo "Successfully installed the lightdm-webkit2-greeter"
+
     # Install the Lightdm-Webkit2-greeter source file
     #mkdir -p /usr/share/backgrounds
     #mkdir -p /usr/share/lightdm-webkit/themes/
@@ -280,4 +285,41 @@ install_Packages() {
     
 }
 
+install_Obmenu() {
+    if command_exists obmenu-generator; then
+        echo "obmenu-generator already installed"
+        return
+    else
+	#cpan -i Gtk3
+	curl -L http://cpanmin.us | perl - --sudo Gtk3
+	#cpan -i Data::Dump
+	curl -L http://cpanmin.us | perl - --sudo Data::Dump
+	#cpan -i Linux::DesktopFiles
+	curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
+	#cpan -i File::DesktopEntry
+	curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
+	fi
+}
+
+install_StarshipAndFzf() {
+    
+    if command_exists starship; then
+        echo "Starship already installed"
+        return
+    fi
+
+    if ! curl -sS https://starship.rs/install.sh | sh; then
+        echo "${RED}Something went wrong during starship install!${RC}"
+        exit 1
+    fi
+    if command_exists fzf; then
+        echo "Fzf already installed"
+    else
+        git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
+        ~/.fzf/install
+    fi
+}
+
+install_Obmenu
+install_StarshipAndFzf
 install_Packages
