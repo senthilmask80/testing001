@@ -21,61 +21,61 @@ install_Packages() {
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
 
 	# Install the downloaded deb file using apt-get
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-keyring_2023.01.14-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-keyring_2023.01.14-1_all.deb
 	apt-get install -f
 	
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-python-apt-template_13.0-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-python-apt-template_13.0-1_all.deb
 	apt-get install -f
 
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-os-release_13.0-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-os-release_13.0-1_all.deb
 	apt-get install -f
 
  	apt-get update -y && apt-get upgrade -y && apt-get autoremove -y
   
- 	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-apt-update-checker_13.0-1_all.deb
+ 	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-apt-update-checker_13.0-1_all.deb
 	apt-get install -f
 	echo "Successfully installed the bunsen-apt-os-release"
 
 	# Install the downloaded deb file using apt-get
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-blob_13.0-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-blob_13.0-1_all.deb
 	apt-get install -f
 	echo "Successfully installed the bunsen-blob"
 
 	# Install the downloaded deb file using apt-get
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-common_13.0.1-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-common_13.0.1-1_all.deb
 	apt-get install -f
 	echo "Successfully installed the bunsen-common"
 
 	# Install the downloaded deb file using apt-get
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-configs_13.1-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-configs_13.1-1_all.deb
 	apt-get install -f
 	
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-configs-pulse_10.0-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-configs-pulse_10.0-1_all.deb
 	apt-get install -f
 	echo "Successfully installed the bunsen-configs"
 	
 	# Install the downloaded deb file using apt-get
-	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen-meta-packaging_13.1-1_all.deb
+	apt-get install -y .$PROXDIR/ProxDot/packages/bunsen/bunsen-meta-packaging_13.1-1_all.deb
 	apt-get install -f
 	echo "Successfully installed the bunsen-meta"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-utilities_13.0-1_all.deb 
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-utilities_13.0-1_all.deb 
 	apt install -f
 	echo "Successfully installed the bunsen-utilities"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-pipemenus_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-pipemenus_13.0-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-pipemenus"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-meta-ssh_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-meta-ssh_13.1-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-ssh"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-meta-vcs_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-meta-vcs_13.1-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-vcs"
 
@@ -94,12 +94,12 @@ install_Packages() {
 	echo "Successfully installed the bunsen-xfce4-power-manager"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-docs_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-docs_13.0-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-docs"
 	
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-exit_13.2.1-2_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-exit_13.2.1-2_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-exit"
 
@@ -109,12 +109,12 @@ install_Packages() {
 	echo "Successfully installed the bunsen-jgmenu"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-conky_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-conky_13.0-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-conky"
 	
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-fortune_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-fortune_13.0-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-fortune"
 
@@ -129,27 +129,27 @@ install_Packages() {
 	echo "Successfully installed the bunsen-tint2"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-images-base_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-images-base_13.1-1_all.deb
 	apt install -f
 	
-	apt install .$PROXDIR/ProxDot/packages/bunsen-images_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-images_13.1-1_all.deb
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/bunsen-images-archives_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-images-archives_13.0-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-images"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-faenza-icon-theme_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-faenza-icon-theme_13.0-1_all.deb
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/bunsen-numix-icon-theme_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-numix-icon-theme_13.0-1_all.deb
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/bunsen-paper-icon-theme_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-paper-icon-theme_13.0-1_all.deb
 	apt install -f
 
-	apt install .$PROXDIR/ProxDot/packages/bunsen-papirus-icon-theme_13.0-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-papirus-icon-theme_13.0-1_all.deb
 	apt install -f
 
 	apt install .$PROXDIR/ProxDot/packages/labbe-material-icons_0.1.0-1_all.deb 
@@ -164,17 +164,17 @@ install_Packages() {
 	echo "Successfully installed the bunsen-theme"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-meta-java_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-meta-java_13.1-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-java"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-meta-lamp_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-meta-lamp_13.1-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-lamp"
 
 	# Install the downloaded deb file using apt-get
-	apt install .$PROXDIR/ProxDot/packages/bunsen-welcome_13.1-1_all.deb
+	apt install .$PROXDIR/ProxDot/packages/bunsen/bunsen-welcome_13.1-1_all.deb
 	apt install -f
 	echo "Successfully installed the bunsen-welcome"
 
