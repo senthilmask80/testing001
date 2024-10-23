@@ -8,7 +8,6 @@ GREEN='\033[0;32m'
 # Check if the opt directory and Proxmox-DE folder exist, create them if they don't
 # add variables to top level so can easily be accessed by all functions
 
-xdg-user-dirs-update
 PROXDIR="/opt"
 
 if [ -d "$PROXDIR/Proxmox-DE" ]; then rm -rf "$PROXDIR/Proxmox-DE"; fi
@@ -204,7 +203,7 @@ final() {
   	sudo chmod +x /root/.local/bin/fbmenugen
 }
 
-install_Obmenu
+
 install_Packages
 install_StarshipAndFzf
 final
