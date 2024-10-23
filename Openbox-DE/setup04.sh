@@ -228,12 +228,12 @@ install_Packages() {
     #echo "Successfully installed the lightdm-webkit2-greeter"
 
     # Install the Collorid Themes
-    bash $PROXDIR/ProxDot/Scripts/blue.sh
-    echo " Successfully installed the Collorid Themes"
+    #bash $PROXDIR/ProxDot/Scripts/blue.sh
+    #echo " Successfully installed the Collorid Themes"
 
     # Install the picom
-    bash $PROXDIR/ProxDot/Scripts/picom.sh
-    echo "Successfully installed the picom"
+    #bash $PROXDIR/ProxDot/Scripts/picom.sh
+    #echo "Successfully installed the picom"
 
     sudo cp -rf $PROXDIR/ProxDot/backgrounds /usr/share/
     sudo cp -rf $PROXDIR/ProxDot/themes /usr/share/
