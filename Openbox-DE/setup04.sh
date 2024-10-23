@@ -21,58 +21,58 @@ install_Packages() {
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
 
 	# Install the downloaded deb file using apt-get
-	apt install ./bunsen-keyring_2023.01.14-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-keyring_2023.01.14-1_all.deb
+	apt-get install -f
 	
-	apt install ./bunsen-python-apt-template_13.0-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-python-apt-template_13.0-1_all.deb
+	apt-get install -f
 
-	apt install ./bunsen-os-release_13.0-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-os-release_13.0-1_all.deb
+	apt-get install -f
 
- 	apt update -y && apt upgrade -y && apt autoremove -y
+ 	apt-get update -y && apt-get upgrade -y && apt-get autoremove -y
   
- 	apt install ./bunsen-apt-update-checker_13.0-1_all.deb
-	apt install -f
+ 	apt-get install -y ./bunsen-apt-update-checker_13.0-1_all.deb
+	apt-get install -f
 	echo "Successfully installed the bunsen-apt-os-release"
 
 	# Install the downloaded deb file using apt-get
-	apt install ./bunsen-blob_13.0-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-blob_13.0-1_all.deb
+	apt-get install -f
 	echo "Successfully installed the bunsen-blob"
 
 	# Install the downloaded deb file using apt-get
-	apt install ./bunsen-common_13.0.1-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-common_13.0.1-1_all.deb
+	apt-get install -f
 	echo "Successfully installed the bunsen-common"
 
 	# Install the downloaded deb file using apt-get
-	apt install ./bunsen-configs-base_13.1-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-configs-base_13.1-1_all.deb
+	apt-get install -f
 	
-	apt install ./bunsen-configs_13.1-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-configs_13.1-1_all.deb
+	apt-get install -f
 
-	apt install ./bunsen-configs-lite_13.1-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-configs-lite_13.1-1_all.deb
+	apt-get install -f
 	echo "Successfully installed the bunsen-configs"
 
-	apt install ./bunsen-configs-pulse_10.0-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-configs-pulse_10.0-1_all.deb
+	apt-get install -f
 	echo "Successfully installed the bunsen-configs"
 	
 	# Install the downloaded deb file using apt-get
-	apt install ./bunsen-meta-base_13.0-4_all.deb 
-	apt install -f
+	apt-get install -y ./bunsen-meta-base_13.0-4_all.deb 
+	apt-get install -f
 	
-	apt install ./bunsen-meta-lite_13.0-4_all.deb 
-	apt install -f
+	apt-get install -y ./bunsen-meta-lite_13.0-4_all.deb 
+	apt-get install -f
 	
-	apt install ./bunsen-meta-all_12.1-2_all.deb 
-	apt install -f
+	apt-get install -y ./bunsen-meta-all_12.1-2_all.deb 
+	apt-get install -f
 
-	apt install ./bunsen-meta-packaging_13.1-1_all.deb
-	apt install -f
+	apt-get install -y ./bunsen-meta-packaging_13.1-1_all.deb
+	apt-get install -f
 	echo "Successfully installed the bunsen-meta"
 
 	# Install the downloaded deb file using apt-get
