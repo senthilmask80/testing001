@@ -249,6 +249,14 @@ install_Packages() {
     echo "Successfully installed the lightdm-webkit2-greeter"
 
     # Download the lightdm-webkit2-greeter deb file
+    #cpan -i Gtk3
+    curl -L http://cpanmin.us | perl - --sudo Gtk3
+    #cpan -i Data::Dump
+    curl -L http://cpanmin.us | perl - --sudo Data::Dump
+    #cpan -i Linux::DesktopFiles
+    curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
+    #cpan -i File::DesktopEntry
+    curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
     sudo apt-get install -y $PROXDIR/ProxDot/packages/obmenu-generator_0.91-1_all.deb
     sudo apt-get install -f
     echo "Successfully installed the lightdm-webkit2-greeter"
@@ -285,21 +293,6 @@ install_Packages() {
     
 }
 
-install_Obmenu() {
-    if command_exists obmenu-generator; then
-        echo "obmenu-generator already installed"
-        return
-    else
-	#cpan -i Gtk3
-	curl -L http://cpanmin.us | perl - --sudo Gtk3
-	#cpan -i Data::Dump
-	curl -L http://cpanmin.us | perl - --sudo Data::Dump
-	#cpan -i Linux::DesktopFiles
-	curl -L http://cpanmin.us | perl - --sudo Linux::DesktopFiles
-	#cpan -i File::DesktopEntry
-	curl -L http://cpanmin.us | perl - --sudo File::DesktopEntry
-	fi
-}
 
 install_StarshipAndFzf() {
     
@@ -320,6 +313,5 @@ install_StarshipAndFzf() {
     fi
 }
 
-install_Obmenu
 install_StarshipAndFzf
 install_Packages
