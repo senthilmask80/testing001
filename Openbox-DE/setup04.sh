@@ -20,10 +20,7 @@ install_Packages() {
     # sudo apt-get -y --ignore-missing install $(< $PROXDIR/ProxDot/Scripts/debian-packages.list)
     sudo apt autoclean && sudo apt autoremove -y && sudo rm -rf /var/cache/apt/archives/*
 
-# Install the downloaded deb file using apt-get
-	apt install ./bunsen-apt-update-checker_13.0-1_all.deb
-	apt install -f
-	
+	# Install the downloaded deb file using apt-get
 	apt install ./bunsen-keyring_2023.01.14-1_all.deb
 	apt install -f
 	
@@ -32,8 +29,11 @@ install_Packages() {
 
 	apt install ./bunsen-os-release_13.0-1_all.deb
 	apt install -f
-	
-	apt update && apt upgrade && apt autoremove
+
+ 	apt update -y && apt upgrade -y && apt autoremove -y
+  
+ 	apt install ./bunsen-apt-update-checker_13.0-1_all.deb
+	apt install -f
 	echo "Successfully installed the bunsen-apt-os-release"
 
 	# Install the downloaded deb file using apt-get
