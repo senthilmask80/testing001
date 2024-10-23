@@ -47,9 +47,6 @@ install_Packages() {
 	echo "Successfully installed the bunsen-common"
 
 	# Install the downloaded deb file using apt-get
-	apt-get install -y ./bunsen-configs-base_13.1-1_all.deb
-	apt-get install -f
-	
 	apt-get install -y ./bunsen-configs_13.1-1_all.deb
 	apt-get install -f
 	
@@ -58,15 +55,6 @@ install_Packages() {
 	echo "Successfully installed the bunsen-configs"
 	
 	# Install the downloaded deb file using apt-get
-	apt-get install -y ./bunsen-meta-base_13.0-4_all.deb 
-	apt-get install -f
-	
-	apt-get install -y ./bunsen-meta-lite_13.0-4_all.deb 
-	apt-get install -f
-	
-	apt-get install -y ./bunsen-meta-all_12.1-2_all.deb 
-	apt-get install -f
-
 	apt-get install -y ./bunsen-meta-packaging_13.1-1_all.deb
 	apt-get install -f
 	echo "Successfully installed the bunsen-meta"
